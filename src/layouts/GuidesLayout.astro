@@ -1,0 +1,34 @@
+---
+import Navbar from '../components/Navbar.astro';
+import { Image } from 'astro:assets';
+import icon from "/favicon.ico";
+const {frontmatter} = Astro.props;
+---
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{frontmatter.title} - minomino</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href={icon} type="image/x-icon" />
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <Navbar />
+        </div>
+        <div class="flex flex-col mt-4 mb-6 mx-6 md:mx-auto md:max-w-fit">
+            <div class="breadcrumbs mb-4">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/personal-guides">Personal Guides</a></li>
+                    <li>{frontmatter.title}</li>
+                </ul>
+            </div>
+            <h1 class="text-4xl font-bold mb-4" >{frontmatter.title}</h1>
+            <article class="prose lg:prose-lg prose-primary">
+                <Image src={frontmatter.image} alt="Post image" class="rounded-xl mb-4" />
+                <slot />
+            </article>
+        </div>
+    </body>
+</html>

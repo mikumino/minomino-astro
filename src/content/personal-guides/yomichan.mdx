@@ -1,0 +1,52 @@
+---
+title: Yomichan
+description: Yomichan is a browser extension that allows you to quickly look up Japanese words while reading text on a web page.
+image: './yomichan-images/yomichan.jpg'
+imageAlt: yomichan
+---
+import { Image } from 'astro:assets';
+import img1 from './yomichan-images/img1.png';
+import img2 from './yomichan-images/img2.png';
+import img3 from './yomichan-images/img3.png';
+import img4 from './yomichan-images/img4.png';
+import img5 from './yomichan-images/img5.png';
+import img6 from './yomichan-images/img6.png';
+import img7 from './yomichan-images/img7.png';
+import img8 from './yomichan-images/img8.png';
+import img9 from './yomichan-images/img9.png';
+import img10 from './yomichan-images/img10.png';
+
+Yomichan is a browser extension that allows you to quickly look up Japanese words while reading text on a web page. In conjuction with other tools, it can be a convenient way to make Anki cards in no more than a few clicks.
+
+Unfortunately, development of Yomichan has been discontinued. There are community forks of the project, with Yomibaba being the one used in this guide. **It's important to note that when following this guide you must use Yomibaba and not Yomichan.**
+
+## Installation
+1. Go to the [Yomibaba releases page](https://github.com/forsakeninfinity/yomibaba/releases) and download the latest version of the extension for your browser.
+    <Image src={img1} alt="yomibaba releases page" class='mx-auto rounded-xl w-full' />
+2. Extract the zip file somewhere convenient. You're free to delete the zip file but do not delete the folder even after installation.
+    <Image src={img2} alt="yomibaba folder" class='mx-auto rounded-xl w-full' />
+3. On Chrome, go to **chrome://extensions/** and enable developer mode.
+    <Image src={img3} alt="chrome extensions page" class='mx-auto rounded-xl w-full' />
+4. On the top left, click on **Load unpacked** and select the folder you extracted earlier.
+    <Image src={img4} alt="chrome extensions page part 2" class='mx-auto rounded-xl w-full' />
+5. Download my Yomichan settings and dictionaries from [here](https://drive.google.com/file/u/2/d/1WJHWV9eVYDUclOBPHkmHYDgdpBui5YYY/view?usp=drive_link). Extract the zip file somewhere convenient.
+    <Image src={img5} alt="yomichan settings and dictionaries" class='mx-auto rounded-xl w-full' />
+6. You should now see the Yomibaba extension in your browser. Click on the extension icon and click the cog icon to open the settings page.
+    <Image src={img6} alt="yomibaba settings cog" class='mx-auto rounded-xl w-full' />
+7. On the left sidebar, click on **Backup**.
+    <Image src={img7} alt="yomibaba backup" class='mx-auto rounded-xl w-full' />
+8. Click on **Import Dictionary Collection** and select the file starting with **yomibaba-dictionaries** from the folder you extracted earlier.
+    - This takes a while to import. Expect to wait a few minutes.
+    <Image src={img8} alt="yomibaba dictionary" class='mx-auto rounded-xl w-full' />
+9. On the left sidebar, click on **Dictionaries** and then click on **Configure installed and enabled dictionaries**.
+    <Image src={img9} alt="yomibaba dictionaries" class='mx-auto rounded-xl w-full' />
+10. Click the **All** toggle and close.
+11. Click on **Import Settings** and select the file starting with **yomibaba-settings** from the folder you extracted earlier.
+    <Image src={img10} alt="yomibaba settings" class='mx-auto rounded-xl w-full' />
+
+## Usage
+Now Yomichan should be set up and ready to use. You can test it out by holding shift and hovering over the passage below.
+
+> では皆さんは、そういうふうにかけがえのないものだといわれたり、何よりも価値のあるものだといわれたりしている『人間の命』は、実際の金額にすると、いくらくらいのものだと思っていますか？
+
+Enjoy!
