@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import icon from "/favicon.ico";
 const {frontmatter} = Astro.props;
 import Footer from '../components/Footer.astro';
+import { ViewTransitions } from 'astro:transitions';
 ---
 <html lang="en">
     <head>
@@ -12,6 +13,7 @@ import Footer from '../components/Footer.astro';
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href={icon} type="image/x-icon" />
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <ViewTransitions />
     </head>
     <body>
         <div>
@@ -27,7 +29,7 @@ import Footer from '../components/Footer.astro';
             </div>
             <h1 class="text-4xl font-bold mb-4" >{frontmatter.title}</h1>
             <article class="prose lg:prose-lg max-w-3xl">
-                <Image src={frontmatter.image} alt="Post image" class="rounded-xl mb-4" />
+                <Image src={frontmatter.image} alt="Post image" class="rounded-xl mb-4" transition:name={frontmatter.title} />
                 <slot />
             </article>
         </div>
