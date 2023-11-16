@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
-import PostCard from "../components/PostCard.astro";
+import GuideCard from "../components/GuideCard.astro";
 const guides = await getCollection("personal-guides");
 ---
 <BaseLayout title="Personal Guides - minomino">
@@ -10,7 +10,7 @@ const guides = await getCollection("personal-guides");
         <p>Here are some guides I've written. Most of them are guides on using specific tools.</p>
         <div class="columns-1 lg:columns-2 gap-3 max-w-4xl mt-6">
             {guides.map((guide) => (
-                <PostCard post={guide} />
+                <GuideCard post={guide} />
             ))}
         </div>
     </div>

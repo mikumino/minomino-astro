@@ -10,6 +10,18 @@ const guidesCollection = defineCollection({
     }),
 });
 
+const postsCollection = defineCollection({
+    type: 'content',
+    schema: ({ image }) => z.object({
+        title: z.string(),
+        description: z.string(),
+        date: z.date(),
+        image: image(),
+        imageAlt: z.string()
+    }),
+});
+
 export const collections = {
     'personal-guides': guidesCollection,
+    'blog': postsCollection
 };

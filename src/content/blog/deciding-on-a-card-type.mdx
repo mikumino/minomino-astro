@@ -1,0 +1,65 @@
+---
+title: Deciding on a Card Type
+description: Picking a card type can be tricky when not every word you learn functions the same. I discuss the different card types, and the one I ultimately chose.
+date: 2023-10-10T17:30:00-08:00
+image: './deciding-on-a-card-type-images/cover.png'
+imageAlt: bocchi looking at a poster
+---
+import { Image } from 'astro:assets';
+import img1 from './deciding-on-a-card-type-images/img1.png';
+import img2 from './deciding-on-a-card-type-images/img2.png';
+import img3 from './deciding-on-a-card-type-images/img3.png';
+import gif1 from './deciding-on-a-card-type-images/gif1.gif';
+
+### Disclaimer
+
+There's a [blog post](https://tatsumoto-ren.github.io/blog/discussing-various-card-templates.html) on Tatsumoto's website that discusses different card types in a more generic sense. I'm going to be specifically referring to the different card types available for [Aquafina's JP Mining Note](https://aquafina-water-bottle.github.io/jp-mining-note/) as that's what I use to mine.
+
+## The Main Card Types: Vocab and Sentence
+
+When I refer to card types, I'm referring to the different forms that a flashcard can usually take. In the case of JP Mining Note, there are two main types with a few hybrid variations of those two. The two main card types, generally, are **vocab cards** and **sentence cards**. The main difference between these two is what is shown on the front of the card. Vocab cards typically show the word in isolation, while sentence cards show the entire sentence that the target word was mined from. Usually, both cards have the same backside, and in the case of JP Mining Note, all card types have the same backside. Ultimately, both card types are still testing you on the same content, hence the same answer being shown for each. *You're being tested on your ability to recall the meaning and reading of the word*. In vocab cards, it's as simple as remembering the meaning and reading of the word alone. When it comes to sentence cards, some people like to differentiate it by saying that you're trying to understand the sentence shown, but if you're mining sentences that you are only missing one concept of (see: 1T), then you're effectively still just trying to recall the reading and meaning since those are the only things you're unaware of in the sentence. In theory, the two card types don't seem very different, with sentence cards basically just being a slightly easier version of vocab cards. However, there are some potential issues that arise with the card types once you actually put them into practice.
+
+## The Downsides of Different Card Types
+
+I have personally used both vocab and sentence cards extensively throughout my time learning Japanese. Initially, I started with targeted sentence cards, which are sentence cards but with the target word highlighted. I eventually moved on to vocab cards, in order to treat one of the issues that I'm going to discuss, and then finally landed on a hybrid card type. I want to first discuss the pitfalls you might face when choosing between sentence cards and vocab cards.
+
+### Sentence Cards
+
+Targeted sentence cards and sentence cards are really not that different in actual review, so I'm treating them the same. In my experience, sentence cards provided two major challenges and one specific drawback when not using targeted sentence cards:
+
+- Many times, the kanji form will not be used in a sentence despite the kanji being quite common in other mediums. This is mostly a problem in anime.
+- The context surrounding the target word can sometimes be easier to remember than the word itself, resulting in context-based memories.
+- In sentence cards specifically, reading the sentence can take a long time, causing more time in Anki and less time immersing.
+ 
+<Image src={img1} alt="A screenshot of a sentence card" />
+
+### Vocab Cards
+
+Vocab cards are much faster to review than sentence cards, however, there are still some relatively major drawbacks to consider:
+
+- Many words do not function well in SRS as an isolated card. For example, words that have relatively ambiguous definitions and rely heavily on their context for their actual meaning.
+- While vocab cards are generally faster to review, the previous issue makes retaining the information harder.
+
+<Image src={img2} alt="A screenshot of a vocab card" />
+
+## Band-aid Solutions
+
+Since Anki shouldn't be the primary source of learning the language, these issues can be overlooked by many. But if you're like me and these issues bother you, they probably bother you a lot. It's worth pointing out that a lot of these issues have solutions, however none of these solutions felt very satisfying to me. In sentence cards, you can replace kana forms of words with their kanji equivalents, but this makes the card creation process longer. In vocab cards, for words that would benefit from extra context, you can add them into JPMN's hint field or just convert the card into a sentence card. But again, this makes the card creation process longer. Surely, there's a better solution...
+
+### Hybrid Cards
+
+There is a better solution! At least for me there is lol. JPMN comes with a handful of hybrid cards that let you mix vocab and sentence cards in various ways. My personal favorites are click cards and hover cards. Both cards are essentially vocab cards with the sentence initially hidden. You can interact with the word by either clicking or hovering over it to reveal the sentence.
+
+<Image src={gif1} alt="A gif of a click card" class="w-full" />
+
+> Tip: You can use the 'n' key as a shortcut to reveal the sentence. Very useful if you hate using your mouse (like me!)
+
+I personally felt generally more comfortable doing vocab cards than sentence cards, but the missing context of vocab cards was a pretty major drawback for me. Having the ability to reveal the sentence if I felt like I needed it on a per-card basis during review basically solved every issue I had with the main card types. Even if the sentence I mined a word from uses the kana form when I'd rather have the kanji form, the front of the card will display the kanji. I don't form context-based memories because I don't always look at the sentence before flipping the card. The sentence is merely a fallback for if I can't get it from just the word in isolation, meaning I can still correctly guess the meaning on words that need the additional context to make sense. Overall, switching to click cards have only done good for me, as they patch up the major issues I had with vocab and sentence cards. However, I know that my experience is not universal, so if you are having SRS troubles and suspect it's because of your card type, I'd highly recommend trying out the hybrid variants.
+
+#### Edit (10/10/2023)
+
+You will not believe it, but I changed my card type again lol
+
+I recently switched to a Hint Targeted Sentence Cards, since I found it's pretty easy to just not look at the sentence and just focus on the word, while still keeping the sentence there as a fallback. This is pretty much exactly how I use Click cards, but with the benefit of not having to press a button to show the sentence. Instead, my eyes can do all the work for me. Yay!
+
+<Image src={img3} alt="A screenshot of a hint targeted sentence card" />
