@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import addons from "../images/addons.png";
 ---
 <BaseLayout title="Resources - minomino">
     <div class="my-10 mx-6 md:mx-auto md:max-w-2xl">
@@ -23,6 +25,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                         <a class="hover:text-mino-500 transition-colors" href="https://aquafina-water-bottle.github.io/jp-mining-note/alternatives/#note-types">Aquafina's Alternatives Page</a> - Every notable alternative. I'd use Anime Cards if I wasn't using JP Mining Note.
                     <h4>Anki Addons</h4>
                         <a class="hover:text-mino-500 transition-colors font-bold" href="https://drive.google.com/file/d/1oaRPN88O071bzvUJtdHCInvLF8n9BCln/view?usp=sharing">Anki Addon Pack</a> (✨) - These are the Anki addons I have installed. You can unzip this into your addons21 folder. Make sure to check for updates after installing.
+                            <Image src={addons} alt="Anki Addon Pack" class="mx-auto rounded-lg" />
 
         </article>
     </div>
