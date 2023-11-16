@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import tmw from "../images/tmw.png";
 import refold from "../images/refold.png";
+import Footer from "../components/Footer.astro";
 ---
 <BaseLayout title="Community Guides - minomino">
     <div class="flex flex-col my-10 mx-6 md:mx-auto md:max-w-2xl">
@@ -17,4 +18,5 @@ import refold from "../images/refold.png";
             <p>Refold is probably one of the most popular language-learning guides on the internet that pushes immersion. As opposed to the rest of the sites on this page, it's language-agnostic rather than Japanese-focused. To get a more Japanese-specific take on the Refold "methodology," you'd need to head to the Refold JP Discord server. Truthfully, although I started with Refold and believe that most of what they say applies fine to Japanese, I believe that there are better guides out there for beginners. I found the official roadmap to be too unspecific for my liking, especially when I was a beginner. This led me to spending more time looking at the Discord server rather than the guide itself. I don't think it's bad, but you probably won't see the advice nor receive the resources you need unless you head to the Discord server.</p>
         </article>
     </div>
+    <Footer />
 </BaseLayout>

@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar.astro';
 import { Image } from 'astro:assets';
 import icon from "/favicon.ico";
 const {frontmatter} = Astro.props;
+import Footer from '../components/Footer.astro';
 ---
 <html lang="en">
     <head>
@@ -31,4 +32,5 @@ const {frontmatter} = Astro.props;
             </article>
         </div>
     </body>
+    <Footer />
 </html>
