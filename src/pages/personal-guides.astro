@@ -2,9 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import GuideCard from "../components/GuideCard.astro";
+import { ViewTransitions } from "astro:transitions";
 const guides = await getCollection("personal-guides");
 ---
 <BaseLayout title="Personal Guides - minomino">
+    <head>
+        <ViewTransitions />
+    </head>
     <div class="m-6 max-w-4xl md:mx-auto">
         <h1 class="text-4xl font-bold mb-4 ">Personal Guides</h1>
         <p>Here are some guides I've written. Most of them are guides on using specific tools.</p>
