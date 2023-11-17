@@ -6,20 +6,20 @@ import { Image, getImage } from "astro:assets";
 const optBgImg = await getImage({ src: bgImg });
 import Footer from "../components/Footer.astro";
 ---
-<BaseLayout title="minomino">
+<BaseLayout title="mikumino">
     <div style=`background-image: url(${optBgImg.src})` class=`h-[40vh] min-w-screen mb-7 flex flex-col justify-center items-center bg-mino-700 bg-cover`>
-        <h1 class="text-5xl mb-4 font-bold">minomino</h1>
-        <p class="text-2xl">My Japanese learning repository</p>
+        <h1 class="text-5xl mb-4 font-bold">mikumino</h1>
     </div>
     <!-- Maybe turn these into cards and see how it looks -->
     <div class="flex flex-col mb-10 mx-6 md:mx-auto md:max-w-2xl">
-        <h2 class="text-4xl font-bold mb-2">minomino</h2>
-        <p class="mb-4">minomino is a place for me to put everything related to my Japanese learning. There are tons of resources and guides out there for learning Japanese, and I wanted to create a place where I can put everything I've used into one place that I can easily share with friends.</p>
+        <h2 class="text-4xl font-bold mb-2">mikumino</h2>
+        <p class="mb-4">Welcome to my website! This is mostly a place for me to dump all of my thoughts about Japanese learning, but there are other things too! lol. There are tons of resources and guides out there for learning Japanese, and I wanted to create a place where I can put everything I've used into one place that I can easily share with friends.</p>
         <Image src={nanamui} alt="nanamui" class="w-60 mx-auto mb-6" />
         <!-- Resources -->
         <h2 class="text-4xl font-bold mb-2">Resources</h2>
         <p class="mb-4">These are resources that I have or currently am using. Basically stuff like tools that I use.</p>
         <a href="/resources" class="btn btn-outline btn-primary mb-6">Resources</a>
+        
         <!-- Guides -->
         <h2 class="text-4xl font-bold mb-2">Guides</h2>
         <p class="mb-4">These are guides that I've followed in the past. There are a lot out there, and some are better than others in my opinion.</p>
