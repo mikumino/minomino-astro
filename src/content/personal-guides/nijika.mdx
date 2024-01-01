@@ -1,0 +1,139 @@
+---
+title: Nijika
+description: Log immersion, get experience points, level up, and share your immersion progress with friends.
+image: './nijika-images/cover.jpg'
+imageAlt: nijika
+---
+import { Image } from 'astro:assets';
+import img1 from './nijika-images/img1.png';
+import img2 from './nijika-images/img2.png';
+import img3 from './nijika-images/img3.png';
+import img4 from './nijika-images/img4.png';
+import img5 from './nijika-images/img5.png';
+import img6 from './nijika-images/img6.png';
+import img7 from './nijika-images/img7.png';
+
+### Table of Contents
+- [What is Nijika?](#what-is-nijika)
+- [Basic Usage](#basic-usage)
+- [Commands](#commands)
+- [Log/Source Commands](#logsource-commands)
+  - [Log (``/log``)](#log-log)
+  - [Quick Log (``/qlog``)](#quick-log-qlog)
+  - [Quick One Time Log (``/qonetime``)](#quick-one-time-log-qonetime)
+  - [Complete (``/complete``)](#complete-complete)
+  - [Edit (``/edit``)](#edit-edit)
+  - [Sources (``/sources``)](#sources-sources)
+  - [Source Info (``/sourceinfo``)](#source-info-sourceinfo)
+  - [Random Source (``/randomsource``)](#random-source-randomsource)
+- [Progress Commands](#progress-commands)
+  - [Leaderboard (``/leaderboard``)](#leaderboard-leaderboard)
+  - [Personal (``/personal``)](#personal-personal)
+  - [Daily (``/daily``)](#daily-daily)
+  - [Profile (``/profile``)](#profile-profile)
+  - [Export (``/export``)](#export-export)
+- [Admin Commands](#admin-commands)
+  - [Recalculate (``/recalculate``)](#recalculate-recalculate)
+  - [Set Channel (``/setchannel``)](#set-channel-setchannel)
+  - [Toggle Auto Leaderboard (``/toggleautoleaderboard``)](#toggle-auto-leaderboard-toggleautoleaderboard)
+
+## What is Nijika?
+Nijika is a Discord bot that allows you to log your immersion and share your progress with others in a server. It is heavily inspired by TMW's [Immersion Bot](https://github.com/themoeway/immersion-bot). I created it with my friend [Colby](https://github.com/colbydeason) to learn more about software development and because I thought a custom-made solution would be fun to have for my own server.
+
+Because Nijika is specifically made for my own server, I do not have a public instance of it. You are certainly free to host your own instance if you'd like it though! See the [GitHub repository](https://github.com/mikumino/nijika) for more information.
+
+## Basic Usage
+Logging immersion through Nijika involves creating a **Source**, which is essentially just a piece of media. You can create a source by using ``/log``. 
+<Image src={img1} alt="nijika log command" class='mx-auto rounded-xl w-full' />
+The bot will prompt you for the source's name, type, and an optional description. Once a source is created, you can then make a time entry with ``/log``. The source you have created will appear in the dropdown list.
+<Image src={img2} alt="nijika log command part 2" class='mx-auto rounded-xl w-full' />
+You can then follow the prompts to log your immersion. There is more you can do with Nijika, but this is the most basic usage of it. To see more commands, see [Commands](#commands).
+
+## Commands
+This is a list of all the commands that Nijika has, as well as their usage.
+## Log/Source Commands
+These are commands related to logging immersion and managing sources.
+
+### [Log (``/log``)](#log-log)
+The ``/log`` command is the only command you need to use the most basic features of Nijika. It handles the creation of sources as well as logs. You can simply call it with ``/log`` and follow the prompts. See [Basic Usage](#basic-usage) for more information.
+
+### [Quick Log (``/qlog``)](#quick-log-qlog)
+The ``/qlog`` command allows you to quickly log immersion without having to go through graphical prompts. It can be used like:
+
+- ``/qlog <source name> <time>``
+
+For example, logging a source called 'Higurashi no Naku Koro ni' for 30 minutes would look like:
+
+- ``/qlog name:Higurashi no Naku Koro ni duration:30``
+
+Discord will autocomplete the source name as well as provide you with a list of sources if you don't remember the exact name.
+
+### [Quick One Time Log (``/qonetime``)](#quick-one-time-log-qonetime)
+The ``/qonetime`` command allows you to quickly log a one-time immersion session. It can be used like:
+
+- ``/qonetime <source name> <type> <time> <description (optional)>``
+
+For example, logging a one-time session of 'Higurashi no Naku Koro ni' for 30 minutes might look like:
+
+- ``/qonetime name:Higurashi no Naku Koro ni type:Visual Novel duration:30 description:YOOOOOOOO``
+
+### [Complete (``/complete``)](#complete-complete)
+The ``/complete`` command allows you to complete a source. This is useful for when you finish a piece of media and want to mark it as complete. Use it by calling ``/complete`` and selecting the source you want to complete from the dropdown list.
+
+### [Edit (``/edit``)](#edit-edit)
+The ``/edit`` command allows you to edit a source. You can edit the source's info or pause/resume it. Use it by calling ``/edit`` and selecting the source you want to edit from the dropdown list.
+
+### [Sources (``/sources``)](#sources-sources)
+The ``/sources`` command allows you to view all of your sources. Use it by calling ``/sources``. They can be filtered by status.
+
+### [Source Info (``/sourceinfo``)](#source-info-sourceinfo)
+The ``/sourceinfo`` command allows you to view a source's info. This can be used to view the source's description, type, total time, and status. The format is:
+
+- ``/sourceinfo <source name>``
+
+<Image src={img3} alt="nijika sourceinfo command" class='mx-auto rounded-xl w-full' />
+
+### [Random Source (``/randomsource``)](#random-source-random)
+The ``/randomsource`` command allows you to get a random source from your list. This can be used to help you decide what to immerse in. The format is:
+
+- ``/randomsource <type (optional)>``
+
+## Progress Commands
+These are commands related to visualizing your progress in some way.
+
+### [Leaderboard (``/leaderboard``)](#leaderboard-leaderboard)
+The ``/leaderboard`` command allows you to view the server's leaderboard. This shows the top 10 users in the server by experience points. Use it by calling ``/leaderboard``. Time range can be optionally passed in, options are ``daily``, ``weekly``, and ``monthly``. Defaults to ``monthly``.
+
+<Image src={img5} alt="nijika leaderboard command" class='mx-auto rounded-xl w-full' />
+
+### [Personal (``/personal``)](#personal-personal)
+The ``/personal`` command allows you to view a chart of your tracked immersion time. Use it by calling ``/personal``. Time range can be optionally passed in, options are ``daily``, ``weekly``, and ``monthly``. Defaults to ``monthly``.
+
+<Image src={img6} alt="nijika personal command" class='mx-auto rounded-xl w-full' />
+
+### [Daily (``/daily``)](#daily-daily)
+The ``/daily`` command allows you to view a breakdown of your daily immersion. Use it by calling ``/daily``.
+
+<Image src={img7} alt="nijika daily command" class='mx-auto rounded-xl w-full' />
+
+### [Profile (``/profile``)](#profile-profile)
+The ``/profile`` command allows you to view your profile. This includes your experience points and total immersion time. Use it by calling ``/profile``.
+
+<Image src={img4} alt="nijika profile command" class='mx-auto rounded-xl w-full' />
+
+### [Export (``/export``)](#export-export)
+The ``/export`` command allows you to export your immersion data. It exports an XML file. Use it by calling ``/export``.
+## Admin Commands
+These are admin-only commands that are used to manage the bot.
+
+### [Recalculate (``/recalculate``)](#recalculate-recalculate)
+
+This recalculates the duration of all logs. This was used for when durations were not being calculated correctly. It is not necessary to use this command unless you are experiencing issues with durations. Make a backup of your database before using this command, it is destructive.
+
+### [Set Channel (``/setchannel``)](#set-channel-setchannel)
+
+This sets the channel that the bot will post the leaderboard in. Use it by calling ``/setchannel`` and selecting the channel you want to set from the dropdown list.
+
+### [Toggle Auto Leaderboard (``/toggleautoleaderboard``)](#toggle-auto-leaderboard-toggleautoleaderboard)
+
+This toggles the bot's auto leaderboard feature. When enabled, the bot will automatically post the leaderboard in the channel set by ``/setchannel``. Use it by calling ``/toggleautoleaderboard``.
