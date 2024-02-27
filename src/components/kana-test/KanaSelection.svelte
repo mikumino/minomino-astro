@@ -1,53 +1,57 @@
 <script>
     export let onSubmit;
     let mainKanaRow = [
-        { id: 1, name: 'あいうえお', selected: false },
-        { id: 2, name: 'かきくけこ', selected: false },
-        { id: 3, name: 'さしすせそ', selected: false },
-        { id: 4, name: 'たちつてと', selected: false },
-        { id: 5, name: 'なにぬねの', selected: false },
-        { id: 6, name: 'はひふへほ', selected: false },
-        { id: 7, name: 'まみむめも', selected: false },
-        { id: 8, name: 'やゆよ', selected: false },
-        { id: 9, name: 'らりるれろ', selected: false },
-        { id: 10, name: 'わをん', selected: false }
+        { id: 1, name: 'あいうえお', value: ['あ', 'い', 'う', 'え', 'お'], selected: false },
+        { id: 2, name: 'かきくけこ', value: ['か', 'き', 'く', 'け', 'こ'], selected: false },
+        { id: 3, name: 'さしすせそ', value: ['さ', 'し', 'す', 'せ', 'そ'], selected: false },
+        { id: 4, name: 'たちつてと', value: ['た', 'ち', 'つ', 'て', 'と'], selected: false },
+        { id: 5, name: 'なにぬねの', value: ['な', 'に', 'ぬ', 'ね', 'の'], selected: false },
+        { id: 6, name: 'はひふへほ', value: ['は', 'ひ', 'ふ', 'へ', 'ほ'], selected: false },
+        { id: 7, name: 'まみむめも', value: ['ま', 'み', 'む', 'め', 'も'], selected: false },
+        { id: 8, name: 'やゆよ', value: ['や', 'ゆ', 'よ'], selected: false },
+        { id: 9, name: 'らりるれろ', value: ['ら', 'り', 'る', 'れ', 'ろ'], selected: false },
+        { id: 10, name: 'わをん', value: ['わ', 'を', 'ん'], selected: false }
     ]
 
     let dakutenRow = [
-        { id: 11, name: 'がぎぐげご', selected: false },
-        { id: 12, name: 'ざじずぜぞ', selected: false },
-        { id: 13, name: 'だぢづでど', selected: false },
-        { id: 14, name: 'ばびぶべぼ', selected: false },
-        { id: 15, name: 'ぱぴぷぺぽ', selected: false }
+        { id: 11, name: 'がぎぐげご', value: ['が', 'ぎ', 'ぐ', 'げ', 'ご'], selected: false },
+        { id: 12, name: 'ざじずぜぞ', value: ['ざ', 'じ', 'ず', 'ぜ', 'ぞ'], selected: false },
+        { id: 13, name: 'だぢづでど', value: ['だ', 'ぢ', 'づ', 'で', 'ど'], selected: false },
+        { id: 14, name: 'ばびぶべぼ', value: ['ば', 'び', 'ぶ', 'べ', 'ぼ'], selected: false },
+        { id: 15, name: 'ぱぴぷぺぽ', value: ['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ'], selected: false }
     ]
 
     let combinationRow = [
-        { id: 16, name: 'きゃきゅきょ', selected: false },
-        { id: 17, name: 'しゃしゅしょ', selected: false },
-        { id: 18, name: 'ちゃちゅちょ', selected: false },
-        { id: 19, name: 'にゃにゅにょ', selected: false },
-        { id: 20, name: 'ひゃひゅひょ', selected: false },
-        { id: 21, name: 'みゃみゅみょ', selected: false },
-        { id: 22, name: 'りゃりゅりょ', selected: false }
+        { id: 16, name: 'きゃきゅきょ', value: ['きゃ', 'きゅ', 'きょ'], selected: false },
+        { id: 17, name: 'しゃしゅしょ', value: ['しゃ', 'しゅ', 'しょ'], selected: false },
+        { id: 18, name: 'ちゃちゅちょ', value: ['ちゃ', 'ちゅ', 'ちょ'], selected: false },
+        { id: 19, name: 'にゃにゅにょ', value: ['にゃ', 'にゅ', 'にょ'], selected: false },
+        { id: 20, name: 'ひゃひゅひょ', value: ['ひゃ', 'ひゅ', 'ひょ'], selected: false },
+        { id: 21, name: 'みゃみゅみょ', value: ['みゃ', 'みゅ', 'みょ'], selected: false },
+        { id: 22, name: 'りゃりゅりょ', value: ['りゃ', 'りゅ', 'りょ'], selected: false }
     ]
 
     function getSelectedKana() {
         let selectedKana = [];
+
         mainKanaRow.forEach(row => {
             if (row.selected) {
-                selectedKana.push(row.name);
+                selectedKana = selectedKana.concat(row.value);
             }
         });
+
         dakutenRow.forEach(row => {
             if (row.selected) {
-                selectedKana.push(row.name);
+                selectedKana = selectedKana.concat(row.value);
             }
         });
+
         combinationRow.forEach(row => {
             if (row.selected) {
-                selectedKana.push(row.name);
+                selectedKana = selectedKana.concat(row.value);
             }
         });
+
         return selectedKana;
     }
 
