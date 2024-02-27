@@ -1,4 +1,5 @@
 <script>
+    import wanakana from 'wanakana';
     export let selectedKana;
     let currentKana = '';
     function nextKana() {
