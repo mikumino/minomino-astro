@@ -6,6 +6,7 @@
     let textboxValue = 'lol';
 
     function nextKana() {
+        textboxValue = '';
         currentKana = selectedKana[Math.floor(Math.random() * selectedKana.length)];
     }
     
