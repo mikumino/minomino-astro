@@ -37,5 +37,6 @@
         <form on:submit|preventDefault={checkAnswer} >
             <input type="text" bind:value={textboxValue} class="input input-bordered" />
         </form>
+        <button on:click={stopTest} class="btn btn-primary btn-outline mt-4">Stop Test</button>
     </div>
 </div>

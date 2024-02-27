@@ -63,7 +63,17 @@
 <div class="flex flex-col w-full">
     <div class="grid grid-cols-3 gap-4">
         <div class="flex flex-col items-center">
-            <h2 class="text-2xl font-bold mb-4">Main Kana</h2>
+            <h2 class="text-2xl font-bold mb-2">Main Kana</h2>
+            <div class="flex flex-row w-full items-center justify-center mb-2">
+                <button class="text-primary mb-2 mr-4" on:click={() => {
+                    mainKanaRow.forEach(row => row.selected = true);
+                    mainKanaRow = [...mainKanaRow];
+                }}>Select All</button>
+                <button class="text-primary mb-2" on:click={() => {
+                    mainKanaRow.forEach(row => row.selected = false);
+                    mainKanaRow = [...mainKanaRow];
+                }}>Deselect All</button>
+            </div>
             {#each mainKanaRow as row}
                 <label for={row.id} class={`text-xl btn btn-primary ${row.selected ? '' : 'btn-outline'} mb-2 w-full`}>
                     <input type="checkbox" id={row.id} bind:checked={row.selected} class="hidden" />
@@ -72,7 +82,17 @@
             {/each}
         </div>
         <div class="flex flex-col items-center">
-            <h2 class="text-2xl font-bold mb-4">Dakuten</h2>
+            <h2 class="text-2xl font-bold mb-2">Dakuten</h2>
+            <div class="flex flex-row w-full items-center justify-center mb-2">
+                <button class="text-primary mb-2 mr-4" on:click={() => {
+                    dakutenRow.forEach(row => row.selected = true);
+                    dakutenRow = [...dakutenRow];
+                }}>Select All</button>
+                <button class="text-primary mb-2" on:click={() => {
+                    dakutenRow.forEach(row => row.selected = false);
+                    dakutenRow = [...dakutenRow];
+                }}>Deselect All</button>
+            </div>
             {#each dakutenRow as row}
                 <label for={row.id} class={`text-xl btn btn-primary ${row.selected ? '' : 'btn-outline'} mb-2 w-full`}>
                     <input type="checkbox" id={row.id} bind:checked={row.selected} class="hidden" />
@@ -81,7 +101,17 @@
             {/each}
         </div>
         <div class="flex flex-col items-center">
-            <h2 class="text-2xl font-bold mb-4">Combination</h2>
+            <h2 class="text-2xl font-bold mb-2">Combination</h2>
+            <div class="flex flex-row w-full items-center justify-center mb-2">
+                <button class="text-primary mb-2 mr-4" on:click={() => {
+                    combinationRow.forEach(row => row.selected = true);
+                    combinationRow = [...combinationRow];
+                }}>Select All</button>
+                <button class="text-primary mb-2" on:click={() => {
+                    combinationRow.forEach(row => row.selected = false);
+                    combinationRow = [...combinationRow];
+                }}>Deselect All</button>
+            </div>
             {#each combinationRow as row}
                 <label for={row.id} class={`text-xl btn btn-primary ${row.selected ? '' : 'btn-outline'} mb-2 w-full`}>
                     <input type="checkbox" id={row.id} bind:checked={row.selected} class="hidden" />
