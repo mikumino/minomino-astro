@@ -9,10 +9,10 @@ export default {
             {
                 mino: {
                     "primary": "#e64c3e",
-                    "secondary": "#3A6F61",
+                    "secondary": "#3de69a",
                     "accent": "#E2692C",
                     "neutral": "#E3C39F",
-                    "base-100": "#1a191c",
+                    "base-100": "#141010",
                 },
             },
         ],
@@ -20,7 +20,7 @@ export default {
     theme: {
         extend: {
           fontFamily: {
-              'sans': ['"Hind"', 'sans-serif'],
+              'sans': ['Noto Sans JP', 'sans-serif'],
           },
           colors: {
               'mino': {

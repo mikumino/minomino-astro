@@ -24,14 +24,14 @@ import { Image } from "astro:assets";
     </div>
     {/* The center of the navbar, has logo on mobile, nothing on desktop */}
     <div class='navbar-center md:hidden'>   
-        <a href="/" class="btn btn-ghost normal-case text-xl text-accent mx-3"><Image src={logo} alt='logo' class="w-7 mr-3" />mikumino</a>
+        <a href="/" class="btn btn-ghost normal-case text-xl text-primary mx-3"><Image src={logo} alt='logo' class="w-7 mr-3" />mikumino</a>
     </div>
     <div class='navbar-end'>
         <div class='hidden md:flex'>
-            <ul class='menu menu-horizontal px-1 text-accent'>
-                <li><a href="/resources">Resources</a></li>
-                <li><a href="/personal-guides">Personal Guides</a></li>
+            <ul class='menu menu-horizontal px-1 text-primary'>
                 <li><a href="/blog">Blog</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/personal-guides">Guides</a></li>
                 <li><a href="/other">Other</a></li>
             </ul>
         </div>

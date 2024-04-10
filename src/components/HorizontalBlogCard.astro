@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+const {post} = Astro.props;
+---
+
+<div class="h-32 mb-6">
+    <a href={`/blog/${post.slug}`}>
+        <div class="flex flex-row mb-4 justify-between hover:bg-mino-dark-500 rounded-lg transition-colors">
+            <div class="flex flex-col justify-between">
+                <div class="flex flex-col">
+                    <h2 class="font-bold text-xl">{post.data.title}</h2>
+                    <p class="text-neutral-400">{post.data.description}</p>
+                </div>
+                <div class="flex flex-col text-neutral-400">
+                    <p>{post.data.date.toLocaleDateString()} ・ {Math.floor(post.body.split(" ").length / 183) } minute read</p>
+                </div>
+            </div>
+            <div>
+                <Image transition:name={post.data.title} class="w-52 h-32 rounded-md object-cover" src={post.data.image} alt={post.data.imageAlt} />
+            </div>
+        </div>
+    </a>
+</div>
