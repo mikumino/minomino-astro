@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 const {post} = Astro.props;
 ---
-<div class="break-inside-avoid-column z-0">
+<div class="break-inside-avoid-column">
     <a class="group" href={`/blog/${post.slug}`}>
         <div class="card w-full shadow-xl mb-6 group-hover:-translate-y-2 transition">
             <Image transition:name={post.data.title} src={post.data.image} alt={post.data.imageAlt} class="w-full mx-auto rounded-lg mb-2" />
