@@ -1,10 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import nanamui from "../images/nanamui.png";
-import bgImg from "../images/bocchi-primary-grad.png";
 import { Image, getImage } from "astro:assets";
-const optBgImg = await getImage({ src: bgImg });
+import { getCollection } from "astro:content";
+import suisei from "../images/suisei-hoshimachi-suisei.png";
+import HorizontalBlogCard from "../components/HorizontalBlogCard.astro";
 import Footer from "../components/Footer.astro";
+import BlogCard from "../components/BlogCard.astro";
+const posts = await getCollection("blog");
+posts.sort((a,b) => { return (new Date(b.data.date).getTime()) - (new Date(a.data.date).getTime()); });
 ---
 <BaseLayout title="mikumino">
     <div class="flex flex-col max-w-4xl lg:mx-auto m-4 mt-6 mb-12">

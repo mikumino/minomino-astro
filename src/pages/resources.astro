@@ -5,9 +5,10 @@ import addons from "../images/addons.png";
 import Footer from "../components/Footer.astro";
 ---
 <BaseLayout title="Resources - minomino">
-    <div class="my-10 mx-6 md:mx-auto md:max-w-2xl">
-        <article class="prose prose-a:text-mino-400 prose-a:no-underline lg:prose-lg">
-            <h2>Resources</h2>
+    <div class="my-6 mx-6 md:mx-auto md:max-w-4xl">
+        <article class="max-w-4xl">
+            <h2 class="text-4xl font-bold mb-4">Resources</h2>
+                <article class="prose prose-a:text-mino-400 prose-a:no-underline max-w-4xl">
                 <p>These resources are largely compiled from other resource pages. I compiled the ones that I specifically use/have used to be less large.</p>
                 <p>I may include many different links for one category. The best will be labeled with a ✨ and ones that I use will be bolded.</p>
                 <p>This page is a WIP.</p>
@@ -27,6 +28,7 @@ import Footer from "../components/Footer.astro";
                     <h4>Anki Addons</h4>
                         <a class="hover:text-mino-500 transition-colors font-bold" href="https://drive.google.com/file/d/1oaRPN88O071bzvUJtdHCInvLF8n9BCln/view?usp=sharing">Anki Addon Pack</a> (✨) - These are the Anki addons I have installed. You can unzip this into your addons21 folder. Make sure to check for updates after installing.
                             <Image src={addons} alt="Anki Addon Pack" class="mx-auto rounded-lg" />
+                        </article>
 
         </article>
     </div>
