@@ -7,29 +7,70 @@ const optBgImg = await getImage({ src: bgImg });
 import Footer from "../components/Footer.astro";
 ---
 <BaseLayout title="mikumino">
-    <div style=`background-image: url(${optBgImg.src})` class=`h-[40vh] min-w-screen mb-7 flex flex-col justify-center items-center bg-mino-700 bg-cover bg-center`>
-        <h1 class="text-5xl mb-4 font-bold">mikumino</h1>
-    </div>
-    <!-- Maybe turn these into cards and see how it looks -->
-    <div class="flex flex-col mb-10 mx-6 md:mx-auto md:max-w-2xl">
-        <h2 class="text-4xl font-bold mb-2">mikumino</h2>
-        <p class="mb-4">Welcome to my website! This is mostly a place for me to dump all of my thoughts about Japanese learning, but there are other things too! lol. There are tons of resources and guides out there for learning Japanese, and I wanted to create a place where I can put everything I've used into one place that I can easily share with friends.</p>
-        <Image src={nanamui} alt="nanamui" class="w-60 mx-auto mb-6" />
-        <!-- Resources -->
-        <h2 class="text-4xl font-bold mb-2">Resources</h2>
-        <p class="mb-4">These are resources that I have or currently am using. Basically stuff like tools that I use.</p>
-        <a href="/resources" class="btn btn-outline btn-primary mb-6">Resources</a>
-        
-        <!-- Guides -->
-        <h2 class="text-4xl font-bold mb-2">Guides</h2>
-        <p class="mb-4">These are guides that I've followed in the past. There are a lot out there, and some are better than others in my opinion.</p>
-        <p class="mb-4">I've also included some of my personal guides that I wrote specifically for my school.</p>
-        <a href="/community-guides" class="btn btn-outline btn-primary mb-4">Community Guides</a>
-        <a href="/personal-guides" class="btn btn-outline btn-primary mb-6">Personal Guides</a>
-        <!-- Blog -->
-        <h2 class="text-4xl font-bold mb-2">Blog</h2>
-        <p class="mb-4">This is where I ramble about things. I talk about silly stuff that doesn't really matter like Anki card types and thinking about language learning.</p>
-        <a href="/community-guides" class="btn btn-outline btn-primary mb-6">Blog</a>
+    <div class="flex flex-col max-w-4xl lg:mx-auto m-4 mt-6 mb-12">
+        <!-- About -->
+        <div class="flex flex-col mb-6 -z-[0]">
+            <div class="md:hidden flex flex-col">
+                {
+                    posts.map ((post) => (<BlogCard post={post} />))
+                }
+            </div>
+            <div class="hidden md:flex relative w-full mb-6 group overflow-hidden rounded-lg">
+                <a href={`/blog/${posts[0].slug}`}>
+                    <Image class="rounded-lg md:h-96 object-cover group-hover:scale-105 transition-all" src={posts[0].data.image} alt={posts[0].data.imageAlt} />
+                    <div class="absolute bottom-5 left-5">
+                        <h2 class="font-bold text-4xl w-fit p-3 bg-mino-dark-500 mb-2">{posts[0].data.title}</h2>
+                        <div class="flex flex-row gap-2">
+                            <p class="p-3 w-fit bg-mino-dark-500">{posts[0].data.description}</p>
+                            <p class="p-3 w-fit bg-mino-dark-500">{Math.floor(posts[0].body.split(" ").length / 183) } minute read</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="hidden md:flex flex-col">
+                <HorizontalBlogCard post={posts[1]} />
+                <HorizontalBlogCard post={posts[2]} />
+                <button class="btn btn-primary btn-outline w-fit justify-end">See more</button>
+            </div>
+        </div>
+        <div class="bg-neutral-600 w-full h-[1px] mb-6" />
+        <h1 class="font-bold text-2xl mb-4">Explore more</h1>
+        <div class="flex flex-row gap-2">
+            <a class="btn btn-outline btn-secondary w-fit" href="/resources">
+                <svg class="w-6 h-6 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z" clip-rule="evenodd"/>
+                </svg>                  
+                Resources
+            </a>
+            <a class="btn btn-outline btn-secondary w-fit" href="/personal-guides">
+                <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 1 0 0-2h-2v-2h2a1 1 0 0 0 1-1V4a2 2 0 0 0-2-2h-8v16h5v2H7a1 1 0 1 1 0-2h1V2H6Z" clip-rule="evenodd"/>
+                </svg>  
+                Guides
+            </a>
+            <a class="btn btn-outline btn-secondary w-fit" href="/other">
+                <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2ZM7.99 9a1 1 0 0 1 1-1H9a1 1 0 0 1 0 2h-.01a1 1 0 0 1-1-1ZM14 9a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H15a1 1 0 0 1-1-1Zm-5.506 7.216A5.5 5.5 0 0 1 6.6 13h10.81a5.5 5.5 0 0 1-8.916 3.216Z" clip-rule="evenodd"/>
+                </svg>  
+                Other
+            </a>
+        </div>
+        <div class="bg-neutral-600 w-full h-[1px] mt-8 mb-6" />
+        <div class="flex flex-col md:flex-row gap-4 mb-12">
+            <div class="flex flex-col md:w-3/5 leading-relaxed">
+                <div class="flex flex-row">
+                    <Image class="md:hidden mr-4 rounded-full w-12 h-12" src={suisei} alt="suisei" />
+                    <h1 class="text-4xl font-bold mb-4">mikumino</h1>
+                </div>
+                <p class="">I'm learning Japanese, software development, and probably other things. This is where I talk about it.</p>
+                <br />
+                <p class="">I've been learning Japanese for almost 2 years now and have been having fun the entire time. While I am underqualified to give direct advice on learning the language, what I <span class="italic text-accent">can</span> say is that the biggest benefit to my learning has been to just chill out and enjoy the process!</p>
+                <br />
+            </div>
+            <div class="hidden md:flex w-2/5 justify-center items-center">
+                <Image class="rounded-full w-3/4 mx-auto" src={suisei} alt="suisei" />
+            </div>
+        </div>
     </div>
     <Footer />
 </BaseLayout>
