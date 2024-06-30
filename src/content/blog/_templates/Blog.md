@@ -1,7 +1,7 @@
 ---
 title: <% tp.file.title %>
-description: 
+description: <% tp.file.title %>
 date: <% tp.file.creation_date() %>
 image: ./images/
-imageAlt:
+imageAlt: <% tp.file.title %>
 ---
