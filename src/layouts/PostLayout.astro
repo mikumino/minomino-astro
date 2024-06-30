@@ -28,7 +28,7 @@ import { ViewTransitions } from 'astro:transitions';
                 </ul>
             </div>
             <h1 class="text-4xl font-bold mb-4" >{frontmatter.title}</h1>
-            <article class="prose lg:prose-lg prose-a:bg-mino-500 prose-a:bg-opacity-70 prose-a:no-underline hover:prose-a:underline max-w-3xl min-h-screen">
+            <article class="prose lg:prose-lg prose-a:decoration-mino-500 prose-a:underline-offset-4 prose-a:decoration-2 prose-a:bg-opacity-70 hover:prose-a:bg-mino-500 prose-a:transition-all max-w-3xl min-h-screen">
                 <Image src={frontmatter.image} alt="Post image" class="rounded-xl mb-4" transition:name={frontmatter.title} />
                 <slot />
             </article>
