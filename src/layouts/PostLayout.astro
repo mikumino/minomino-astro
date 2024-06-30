@@ -13,6 +13,12 @@ import { ViewTransitions } from 'astro:transitions';
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href={icon} type="image/x-icon" />
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+        <meta property="og:title" content=`${frontmatter.title} - mikumino` />
+        <meta property="og:description" content={frontmatter.data.description} />
+        <meta property="og:image" content={frontmatter.data.image.src} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="theme-color" content="#e64c3e">
         <ViewTransitions />
     </head>
     <body>

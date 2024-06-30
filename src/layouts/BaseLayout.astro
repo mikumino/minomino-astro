@@ -3,6 +3,7 @@ import "../global.css";
 import icon from "/favicon.ico";
 import Navbar from "../components/Navbar.astro";
 import { ViewTransitions } from "astro:transitions";
+import suisei from "../images/suisei-hoshimachi-suisei.png";
 const { title } = Astro.props;
 ---
 <html lang="en">
@@ -12,6 +13,11 @@ const { title } = Astro.props;
         <link rel="icon" href={icon} type="image/x-icon" />
         <title>{title}</title>
         <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content="mikumino's website about Japanese learning and other things." />
+        <meta property="og:image" content={suisei.src} />
+        <meta name="theme-color" content="#e64c3e" />
         <ViewTransitions />
     </head>
     <body>
