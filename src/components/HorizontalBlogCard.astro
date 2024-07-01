@@ -9,9 +9,9 @@ const {post} = Astro.props;
             <div class="flex flex-col justify-between">
                 <div class="flex flex-col">
                     <h2 class="font-bold text-xl">{post.data.title}</h2>
-                    <p class="text-neutral-400">{post.data.description}</p>
+                    <p class="text-muted-foreground">{post.data.description}</p>
                 </div>
-                <div class="flex flex-col text-neutral-400">
+                <div class="flex flex-col text-muted-foreground">
                     <p>{post.data.date.toLocaleDateString()} ・ {Math.floor(post.body.split(" ").length / 183) } minute read</p>
                 </div>
             </div>
