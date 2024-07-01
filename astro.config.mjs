@@ -7,5 +7,7 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react(), tailwind(), mdx(), svelte()]
+  integrations: [react(), tailwind({
+    applyBaseStyles: false,
+  }),, mdx(), svelte()]
 });
