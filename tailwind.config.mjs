@@ -1,77 +1,63 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: ["class"],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
-  prefix: "",
-  theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
+export default {
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+	theme: {
+		extend: {},
+	},
+    daisyui: {
+        themes: [
+            {
+                mino: {
+                    "primary": "#e64c3e",
+                    "secondary": "#3de69a",
+                    "accent": "#E2692C",
+                    "neutral": "#E3C39F",
+                    "base-100": "#141010",
+                },
+            },
+        ],
     },
-    extend: {
-      colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
+    theme: {
+        extend: {
+          fontFamily: {
+              'sans': ['Noto Sans JP', 'sans-serif'],
+          },
+          colors: {
+              'mino': {
+                  100: "#fadbd8",
+                  200: "#f5b7b2",
+                  300: "#f0948b",
+                  400: "#eb7065",
+                  500: "#e64c3e",
+                  600: "#b83d32",
+                  700: "#8a2e25",
+                  800: "#5c1e19",
+                  900: "#2e0f0c"
+              },
+              'mino-dark': {
+                  100: "#d1d1d2",
+                  200: "#a3a3a4",
+                  300: "#767577",
+                  400: "#484749",
+                  500: "#1a191c",
+                  600: "#151416",
+                  700: "#100f11",
+                  800: "#0a0a0b",
+                  900: "#050506"
+              },
+              'mino-yellow': {
+                  100: "#fdf7da",
+                  200: "#fbeeb5",
+                  300: "#f9e691",
+                  400: "#f7dd6c",
+                  500: "#f5d547",
+                  600: "#c4aa39",
+                  700: "#93802b",
+                  800: "#62551c",
+                  900: "#312b0e"
+              },
+          },
         },
       },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-      },
-    },
-  },
-  plugins: [require("tailwindcss-animate")],
+	plugins: [require('daisyui'), require('@tailwindcss/typography')],
 }
