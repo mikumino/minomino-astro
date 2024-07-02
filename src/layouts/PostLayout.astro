@@ -5,6 +5,7 @@ import icon from "/favicon.ico";
 const {frontmatter} = Astro.props;
 import Footer from '../components/Footer.astro';
 import { ViewTransitions } from 'astro:transitions';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 ---
 
 <html lang="en">
@@ -50,12 +51,22 @@ import { ViewTransitions } from 'astro:transitions';
             <Navbar />
         </div>
         <div class="flex flex-col mt-4 mb-6 mx-6 md:mx-auto md:max-w-fit">
-            <div class="breadcrumbs mb-4">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/blog">Blog</a></li>
-                    <li>{frontmatter.title}</li>
-                </ul>
+            <div class="mb-4">
+                <Breadcrumb>
+                    <BreadcrumbList>
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href="/blog">Blog</BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                            {frontmatter.title}
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                </Breadcrumb>
             </div>
             <h1 class="text-4xl font-bold mb-4" >{frontmatter.title}</h1>
             <article class="prose lg:prose-lg prose-a:decoration-mino-500 prose-a:underline-offset-4 prose-a:decoration-2 prose-a:bg-opacity-70 hover:prose-a:bg-mino-500 prose-a:transition-all max-w-3xl min-h-screen">

@@ -10,9 +10,14 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 export function ModeToggle() {
-  const [theme, setThemeState] = React.useState<
-    "theme-light" | "dark" | "system"
-  >("theme-light")
+  const [theme, setThemeState] = React.useState<"theme-light" | "dark" | "system">(
+    () => {
+      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+        return localStorage.getItem('theme') as "theme-light" | "dark" | "system";
+      }
+      return "theme-light";
+    }
+  );
 
   React.useEffect(() => {
     const isDarkMode = document.documentElement.classList.contains("dark")
@@ -25,6 +30,13 @@ export function ModeToggle() {
       (theme === "system" &&
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     document.documentElement.classList[isDark ? "add" : "remove"]("dark")
+    
+    if (theme !== "system") {
+      localStorage.setItem('theme', theme);
+    } else {
+      localStorage.removeItem('theme');
+    }
+
   }, [theme])
 
   return (
