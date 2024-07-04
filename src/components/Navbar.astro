@@ -2,38 +2,29 @@
 import '../global.css';
 import logo from "../images/logo.png";
 import { Image } from "astro:assets";
+import { buttonVariants } from './ui/button';
+import { ModeToggle } from './ModeToggle';
+import { Button } from '@/components/ui/button';
+import { Menu } from 'lucide-react';
+import NavHamburger from './NavHamburger';
+
 ---
-<div class='navbar max-w-4xl mx-auto mt-2 rounded-lg z-[5] relative' transition:name="nav">
-    {/* The left of the navbar, has hamburger menu on mobile, logo and pages on desktop */}
-    <div class='navbar-start'>
-        <details class='dropdown'>
-            <summary tabindex={0} class='btn btn-ghost md:hidden'>
-                {/* Menu bar thing */}
-                <iconify-icon icon="material-symbols-light:menu" style="color: white;" class="text-2xl"></iconify-icon>
-            </summary>
-            <ul tabindex={0} class='menu menu-sm dropdown-content mt-3 p-2 bg-slate-100 text-primary rounded-box w-52'>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/resources">Resources</a></li>
-                <li><a href="/personal-guides">Guides</a></li>
-                <li><a href="/other">Other</a></li>
-            </ul>
-        </details>
-        <ul class="hidden md:menu menu-horizontal px-1 text-primary">
-            <a href="/" class="btn btn-ghost normal-case text-xl text-primary"><Image src={logo} alt='logo' class="w-7 mr-3" />mikumino</a>
-        </ul>
+
+<div class="md:max-w-4xl relative mx-auto mt-2 rounded-lg shadow-lg p-2" transition:name="nav">
+    <div class="md:hidden absolute left-4 top-2">
+        <ModeToggle client:load/>
     </div>
-    {/* The center of the navbar, has logo on mobile, nothing on desktop */}
-    <div class='navbar-center md:hidden'>   
-        <a href="/" class="btn btn-ghost normal-case text-xl text-primary mx-3"><Image src={logo} alt='logo' class="w-7 mr-3" />mikumino</a>
-    </div>
-    <div class='navbar-end'>
-        <div class='hidden md:flex'>
-            <ul class='menu menu-horizontal text-primary'>
-                <li><a href="/blog">Blog</a></li>
-                <li><a href="/resources">Resources</a></li>
-                <li><a href="/personal-guides">Guides</a></li>
-                <li><a href="/other">Other</a></li>
-            </ul>
+    <NavHamburger client:load/>
+    <div class="flex flex-row items-center justify-center md:justify-between">
+        <div class="flex flex-row items-center">
+            <a href="/" class={`${buttonVariants({ variant:"ghost" })} text-xl text-primary`}><Image src={logo} alt='logo' class="w-7 mr-3" />mikumino</a>
+        </div>
+        <div class="hidden md:flex flex-row items-center gap-4">
+            <a class={buttonVariants({ variant: "ghost" })} href="/blog">Blog</a>
+            <a class={buttonVariants({ variant: "ghost" })} href="/resources">Resources</a>
+            <a class={buttonVariants({ variant: "ghost" })} href="/personal-guides">Guides</a>
+            <a class={buttonVariants({ variant: "ghost" })} href="/other">Other</a>
+            <ModeToggle client:load/>
         </div>
     </div>
 </div>
