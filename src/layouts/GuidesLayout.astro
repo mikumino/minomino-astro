@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import icon from "/favicon.ico";
 import { ViewTransitions } from "astro:transitions";
 import Footer from '../components/Footer.astro';
+import * as Breadcrumb from '@/components/ui/breadcrumb';
 
 const {frontmatter} = Astro.props;
 ---
@@ -57,15 +58,25 @@ const {frontmatter} = Astro.props;
             <Navbar />
         </div>
         <div class="flex flex-col mt-4 mb-6 mx-6 md:mx-auto md:max-w-fit">
-            <div class="breadcrumbs mb-4">
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/personal-guides">Personal Guides</a></li>
-                    <li>{frontmatter.title}</li>
-                </ul>
+            <div class="mb-4">
+                <Breadcrumb.Breadcrumb>
+                    <Breadcrumb.BreadcrumbList>
+                        <Breadcrumb.BreadcrumbItem>
+                            <Breadcrumb.BreadcrumbLink href="/">Home</Breadcrumb.BreadcrumbLink>
+                        </Breadcrumb.BreadcrumbItem>
+                        <Breadcrumb.BreadcrumbSeparator />
+                        <Breadcrumb.BreadcrumbItem>
+                            <Breadcrumb.BreadcrumbLink href="/personal-guides">Personal Guides</Breadcrumb.BreadcrumbLink>
+                        </Breadcrumb.BreadcrumbItem>
+                        <Breadcrumb.BreadcrumbSeparator />
+                        <Breadcrumb.BreadcrumbItem>
+                            {frontmatter.title}
+                        </Breadcrumb.BreadcrumbItem>
+                    </Breadcrumb.BreadcrumbList>
+                </Breadcrumb.Breadcrumb>
             </div>
             <h1 class="text-4xl font-bold mb-4">{frontmatter.title}</h1>
-            <article class="prose lg:prose-lg max-w-3xl min-h-screen">
+            <article class="prose dark:prose-invert lg:prose-lg max-w-3xl min-h-screen">
                 <Image src={frontmatter.image} alt="Post image" class="rounded-xl mb-4" transition:name={frontmatter.title} />
                 <slot />
             </article>
