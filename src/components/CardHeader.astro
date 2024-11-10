@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import koito from "../images/koito.png";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { ModeToggle } from "./ModeToggle";
 const path = Astro.url.pathname;
 ---
 
@@ -63,5 +64,6 @@ const path = Astro.url.pathname;
       Other
     </Button>
   </a>
+  <ModeToggle client:load />
 </div>
 <Separator />
