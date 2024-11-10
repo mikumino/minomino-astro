@@ -2,11 +2,11 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image, getImage } from "astro:assets";
 import { getCollection } from "astro:content";
-import suisei from "../images/suisei-hoshimachi-suisei.png";
-import HorizontalBlogCard from "../components/HorizontalBlogCard.astro";
-import Footer from "../components/Footer.astro";
-import BlogCard from "../components/BlogCard.astro";
-import { buttonVariants } from "@/components/ui/button";
+import koito from "../images/koito.png";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import wave from "../images/wave.webp";
+
 const posts = await getCollection("blog");
 posts.sort((a, b) => {
   return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
@@ -14,141 +14,46 @@ posts.sort((a, b) => {
 ---
 
 <BaseLayout title="mikumino">
-  <div class="flex flex-col max-w-4xl lg:mx-auto m-4 mt-6 mb-12">
-    <!-- About -->
-    <div class="flex flex-col mb-6 -z-[0]">
-      <div class="md:hidden flex flex-col">
-        {posts.map((post) => <BlogCard post={post} />)}
-      </div>
-      <div
-        class="hidden md:flex relative w-full mb-6 group overflow-hidden rounded-lg"
-      >
-        <a href={`/blog/${posts[0].slug}`}>
-          <Image
-            class="rounded-lg md:h-96 object-cover group-hover:scale-105 transition-all"
-            src={posts[0].data.image}
-            alt={posts[0].data.imageAlt}
-          />
-          <div class="absolute bottom-5 left-5">
-            <h2 class="font-bold text-4xl w-fit p-3 bg-background mb-2">
-              {posts[0].data.title}
-            </h2>
-            <div class="flex flex-row gap-2">
-              <p class="p-3 w-fit bg-background">{posts[0].data.description}</p>
-              <p class="p-3 w-fit bg-background">
-                {Math.floor(posts[0].body.split(" ").length / 183)} minute read
-              </p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="hidden md:flex flex-col">
-        <HorizontalBlogCard post={posts[1]} />
-        <HorizontalBlogCard post={posts[2]} />
-      </div>
-    </div>
-    <div class="bg-muted w-full h-[1px] mb-6"></div>
-    <h1 class="font-bold text-2xl mb-4">Explore more</h1>
-    <div class="flex flex-row flex-wrap gap-2">
-      <a class={buttonVariants({ variant: "outline" })} href="/blog">
-        <svg
-          class="w-6 h-6"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M15.514 3.293a1 1 0 0 0-1.415 0L12.151 5.24a.93.93 0 0 1 .056.052l6.5 6.5a.97.97 0 0 1 .052.056L20.707 9.9a1 1 0 0 0 0-1.415l-5.193-5.193ZM7.004 8.27l3.892-1.46 6.293 6.293-1.46 3.893a1 1 0 0 1-.603.591l-9.494 3.355a1 1 0 0 1-.98-.18l6.452-6.453a1 1 0 0 0-1.414-1.414l-6.453 6.452a1 1 0 0 1-.18-.98l3.355-9.494a1 1 0 0 1 .591-.603Z"
-            clip-rule="evenodd"></path>
-        </svg>
-
-        Blog
-      </a>
-      <a class={buttonVariants({ variant: "outline" })} href="/resources">
-        <svg
-          class="w-6 h-6"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M4 4a2 2 0 0 0-2 2v12a2 2 0 0 0 .087.586l2.977-7.937A1 1 0 0 1 6 10h12V9a2 2 0 0 0-2-2h-4.532l-1.9-2.28A2 2 0 0 0 8.032 4H4Zm2.693 8H6.5l-3 8H18l3-8H6.693Z"
-            clip-rule="evenodd"></path>
-        </svg>
-        Resources
-      </a>
-      <a class={buttonVariants({ variant: "outline" })} href="/personal-guides">
-        <svg
-          class="w-6 h-6"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M6 2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 1 0 0-2h-2v-2h2a1 1 0 0 0 1-1V4a2 2 0 0 0-2-2h-8v16h5v2H7a1 1 0 1 1 0-2h1V2H6Z"
-            clip-rule="evenodd"></path>
-        </svg>
-        Guides
-      </a>
-      <a class={buttonVariants({ variant: "outline" })} href="/other">
-        <svg
-          class="w-6 h-6"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2ZM7.99 9a1 1 0 0 1 1-1H9a1 1 0 0 1 0 2h-.01a1 1 0 0 1-1-1ZM14 9a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2H15a1 1 0 0 1-1-1Zm-5.506 7.216A5.5 5.5 0 0 1 6.6 13h10.81a5.5 5.5 0 0 1-8.916 3.216Z"
-            clip-rule="evenodd"></path>
-        </svg>
-        Other
-      </a>
-    </div>
-    <div class="bg-muted w-full h-[1px] mt-8 mb-6"></div>
-    <div class="flex flex-col md:flex-row gap-4 mb-12">
-      <div class="flex flex-col md:w-3/5 leading-relaxed">
-        <div class="flex flex-row">
-          <Image
-            class="md:hidden mr-4 rounded-full w-12 h-12"
-            src={suisei}
-            alt="suisei"
-          />
-          <h1 class="text-4xl font-bold mb-4">mikumino</h1>
+  <div class="flex flex-col justify-center items-center mx-4 h-screen">
+    <div class="flex flex-col gap-6 w-full max-w-2xl rounded-lg border p-8">
+      <div class="flex items-center gap-4">
+        <Image src={koito} alt="koito" class="w-28 rounded-full" />
+        <div class="flex flex-col gap-1">
+          <h1 class="text-4xl font-bold">mikumino</h1>
+          <p class="text-muted-foreground">(he/him)</p>
         </div>
-        <p class="">
-          I'm learning Japanese, software development, and probably other
-          things. This is where I talk about it.
-        </p>
-        <br />
-        <p class="">
-          I've been learning Japanese for almost 2 years now and have been
-          having fun the entire time. While I am underqualified to give direct
-          advice on learning the language, what I <span class="italic">can</span
-          > say is that the biggest benefit to my learning has been to just chill
-          out and enjoy the process!
-        </p>
-        <br />
       </div>
-      <div class="hidden md:flex w-2/5 justify-center items-center">
-        <Image class="rounded-full w-3/4 mx-auto" src={suisei} alt="suisei" />
+      <div class="flex items-center gap-1">
+        <Button variant={"ghost"} className="text-lg">
+          <a href="/about">About</a>
+        </Button>
+        <Button variant={"ghost"} className="text-lg">
+          <a href="/blog">Blog</a>
+        </Button>
+        <Button variant={"ghost"} className="text-lg">
+          <a href="/resources">Resources</a>
+        </Button>
+        <Button variant={"ghost"} className="text-lg">
+          <a href="/other">Other</a>
+        </Button>
+      </div>
+      <Separator />
+      <div class="flex flex-col gap-4">
+        <h2 class="flex text-2xl font-bold gap-2 items-center">
+          Hello!
+          <Image src={wave} alt="wave" class="h-8 w-auto" />
+        </h2>
+        <p class="text-lg leading-loose text-foreground">
+          I'm mikumino. I'm a software engineer, fraud Japanese learner, and
+          part-time anime enjoyer.
+        </p>
+        <p class="text-lg leading-loose text-foreground">
+          I originally made this site to share things related to my experience
+          learning Japanese, but it has slowly evolved into something like a
+          profile page. I'm nosy and I like clicking through people's profiles
+          on Discord, so if you're here for that, I hope you like it!
+        </p>
       </div>
     </div>
   </div>
-  <Footer />
 </BaseLayout>
