@@ -6,6 +6,7 @@ import koito from "../images/koito.png";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import wave from "../images/wave.webp";
+import CardHeader from "@/components/CardHeader.astro";
 
 const posts = await getCollection("blog");
 posts.sort((a, b) => {
@@ -16,45 +17,7 @@ posts.sort((a, b) => {
 <BaseLayout title="mikumino" navbar={false}>
   <div class="flex flex-col justify-center items-center mx-4 h-screen">
     <div class="flex flex-col gap-6 w-full max-w-2xl rounded-lg border p-8">
-      <div class="flex items-center gap-4">
-        <Image
-          src={koito}
-          transition:name="koito"
-          alt="koito"
-          class="w-28 rounded-full"
-        />
-        <div class="flex flex-col gap-1">
-          <h1
-            class="text-4xl font-bold text-primary"
-            transition:name="mikumino"
-          >
-            mikumino
-          </h1>
-          <p class="text-muted-foreground" transition:name="pronouns">
-            (he/him)
-          </p>
-        </div>
-      </div>
-      <div class="flex items-center flex-wrap gap-1">
-        <a href="/" transition:name="home-card">
-          <Button variant={"ghost"} className="text-lg text-primary font-bold">
-            Home
-          </Button>
-        </a>
-        <a href="/about" transition:name="about-card">
-          <Button variant={"ghost"} className="text-lg"> About </Button>
-        </a>
-        <a href="/blog" transition:name="blog-card">
-          <Button variant={"ghost"} className="text-lg"> Blog </Button>
-        </a>
-        <a href="/resources" transition:name="resources-card">
-          <Button variant={"ghost"} className="text-lg"> Resources </Button>
-        </a>
-        <a href="/other" transition:name="other-card">
-          <Button variant={"ghost"} className="text-lg"> Other </Button>
-        </a>
-      </div>
-      <Separator />
+      <CardHeader />
       <div class="flex flex-col gap-4">
         <h2 class="flex text-2xl font-bold gap-2 items-center">
           Hello!
