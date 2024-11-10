@@ -7,38 +7,38 @@
     font-family: "Nunito", sans-serif;
   }
   :root {
-    --background: 220 23.076923191547394% 94.90196108818054%; /* base */
-    --foreground: 234 16.022099554538727% 35.49019694328308%; /* text */
+    --background: 32 57 95; /* base */
+    --foreground: 248 19 40; /* text */
 
-    --muted: 223 15.909090638160706% 82.74509906768799%; /* surface0 */
-    --muted-foreground: 233 12.796208262443542% 41.372549533843994%; /* subtext1 */
+    --muted: 35 100 98; /* surface */
+    --muted-foreground: 257 9 61; /* muted */
 
-    --popover: 220 23.076923191547394% 94.90196108818054%; /* base */
-    --popover-foreground: 234 16.022099554538727% 35.49019694328308%; /* text */
+    --popover: 32 57 95; /* base */
+    --popover-foreground: 248 19 40; /* text */
 
-    --card: 220 23.076923191547394% 94.90196108818054%; /* base */
-    --card-foreground: 234 16.022099554538727% 35.49019694328308%; /* text */
+    --card: 32 57 95; /* base */
+    --card-foreground: 248 19 40; /* text */
 
-    --border: 225 13.55932205915451% 76.86274647712708%; /* surface1 */
-    --input: 225 13.55932205915451% 76.86274647712708%; /* surface1 */
+    --border: 315 4 80; /* highlight high */
+    --input: 315 4 80; /* highlight high */
 
-    --primary: 347 86.66666746139526% 44.11764740943909%; /* accent - Red */
-    --primary-foreground: 220 23.076923191547394% 94.90196108818054%; /* base */
+    --primary: 343 76 68; /* love */
+    --primary-foreground: 32 57 95; /* base */
 
-    --secondary: 223 15.909090638160706% 82.74509906768799%; /* surface0 */
-    --secondary-foreground: 234 16.022099554538727% 35.49019694328308%; /* text */
+    --secondary: 35 100 98; /* surface */
+    --secondary-foreground: 248 19 40; /* text */
 
-    --accent: 223 15.909090638160706% 82.74509906768799%; /* surface0 */
-    --accent-foreground: 234 16.022099554538727% 35.49019694328308%; /* text */
+    --accent: 35 100 98; /* surface */
+    --accent-foreground: 248 19 40; /* text */
 
-    --destructive: 347 86.66666746139526% 44.11764740943909%; /* red */
+    --destructive: 343 76 68; /* red */
     --destructive-foreground: 220 21.95121943950653% 91.96078181266785%; /* mantle */
 
-    --ring: 234 16.022099554538727% 35.49019694328308%; /* text */
+    --ring: 248 19 40; /* text */
 
     --radius: 0.5rem;
 
-    --chart-1: 347 86.66666746139526% 44.11764740943909%; /* red */
+    --chart-1: 343 76 68; /* red */
     --chart-2: 183 73.86363744735718% 34.50980484485626%; /* teal */
     --chart-3: 220 91.4893627166748% 53.921568393707275%; /* blue */
     --chart-4: 35 76.98412537574768% 49.41176474094391%; /* yellow */
@@ -63,10 +63,10 @@
     --primary: 343 76 68; /* love */
     --primary-foreground: 249 22 12; /* base */
 
-    --secondary: 247 23 15; /* surface0 */
+    --secondary: 247 23 15; /* surface */
     --secondary-foreground: 245 50 91; /* text */
 
-    --accent: 247 23 15; /* surface0 */
+    --accent: 247 23 15; /* surface */
     --accent-foreground: 245 50 91; /* text */
 
     --destructive: 343 81.25% 74.90196228027344%; /* red */
