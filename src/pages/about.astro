@@ -1,0 +1,136 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import koito from "../images/koito.png";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import bopbop from "../images/bopbop.webp";
+import nanamui from "../images/nanamui.png";
+import coffee from "../images/coffee.jpg";
+import { Image } from "astro:assets";
+import Footer from "@/components/Footer.astro";
+---
+
+<BaseLayout title="mikumino" navbar={false}>
+  <div class="flex flex-col items-center m-4">
+    <div
+      class="flex flex-col flex-grow gap-6 w-full max-w-2xl rounded-lg border p-8"
+    >
+      <div class="flex items-center gap-4">
+        <Image
+          src={koito}
+          transition:name="koito"
+          alt="koito"
+          class="w-28 rounded-full"
+        />
+        <div class="flex flex-col gap-1">
+          <a
+            class="text-4xl font-bold text-primary"
+            href="/"
+            transition:name="mikumino"
+          >
+            mikumino
+          </a>
+          <p class="text-lg text-muted-foreground" transition:name="pronouns">
+            (he/him)
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center flex-wrap gap-1">
+        <a href="/" transition:name="home-card">
+          <Button variant={"ghost"} className="text-lg"> Home </Button>
+        </a>
+        <a href="/about" transition:name="about-card">
+          <Button variant={"ghost"} className="text-lg text-primary font-bold">
+            About
+          </Button>
+        </a>
+        <a href="/blog" transition:name="blog-card">
+          <Button variant={"ghost"} className="text-lg"> Blog </Button>
+        </a>
+        <a href="/resources" transition:name="resources-card">
+          <Button variant={"ghost"} className="text-lg"> Resources </Button>
+        </a>
+        <a href="/other" transition:name="other-card">
+          <Button variant={"ghost"} className="text-lg"> Other </Button>
+        </a>
+      </div>
+      <Separator />
+      <div class="flex flex-col gap-4">
+        <h2 class="flex text-2xl font-bold gap-2 items-center">
+          mikumino について
+          <Image src={bopbop} alt="bopbop" class="h-8 w-auto" />
+        </h2>
+        <h3 class="text-lg font-bold">Japanese and Anime</h3>
+        <p class="text-lg leading-loose text-foreground">
+          If you're here from Discord there's a good chance you found me in some
+          Japanese-related server. I've been learning the language for a bit
+          over 2 years at the time of writing this now. My learning has been
+          primarily through lots and lots of input. I had already liked anime
+          before starting to learn Japanese so it takes up a pretty significant
+          amount of the input I get, but I've also gotten into things like
+          visual novels, light novels, and VTubers as a direct result of
+          learning the language.
+        </p>
+        <p class="text-lg leading-loose text-foreground">
+          My favorite anime and manga of all time is <span
+            class="underline decoration-primary decoration-2 underline-offset-4"
+            ><a href="https://anilist.co/anime/101573/Bloom-Into-You/"
+              >Bloom Into You</a
+            ></span
+          >, but recently <span
+            class="underline decoration-primary decoration-2 underline-offset-4"
+          >
+            <a href="https://anilist.co/anime/130003/BOCCHI-THE-ROCK/"
+              >Bocchi the Rock</a
+            ></span
+          > has wormed its way into my brain as well. Both are incredible in fairly
+          different ways, so I think it is very worth checking them out if you're
+          at all interested. Bloom Into You especially impacted me in a way that
+          no other piece of fiction has. It's really good, please check it out!
+          <Image src={nanamui} alt="nanamui" class="h-28 w-auto mx-auto my-4" />
+        </p>
+        <h3 class="text-lg font-bold">Coffee</h3>
+        <p class="text-lg leading-loose text-foreground">
+          Outside of learning Japanese, I also really enjoy making coffee. While
+          I'm no longer at the peak of my experimentation with it, I still enjoy
+          a cup every day and I'm pretty happy with my current setup. My go-to
+          drink most days is a flat white, but I also enjoy drinking just
+          espresso as well as filter coffee.
+        </p>
+        <p class="text-lg leading-loose text-foreground">
+          For espresso, I use a Breville Bambino (non-plus). I've had it for
+          about 3 years now and I'm honestly surprised at its performance. There
+          may be better nowadays, but I still quite enjoy mine. As for my
+          grinder, I use the Timemore Sculptor 064s. This was a much more recent
+          purchase and I have no regrets, the consistency I've had with it is
+          nothing short of incredible. Finally, for filter, I opt for either V60
+          or AeroPress. Both are great, I find myself going for the AeroPress
+          though since it's quite easy to get a good cup with it.
+        </p>
+        <Image
+          src={coffee}
+          alt="coffee"
+          class="w-auto mx-auto mt-4 rounded-lg"
+        />
+        <p class="text-sm text-muted-foreground">
+          I'm still figuring out latte art please don't make fun of me
+        </p>
+        <h3 class="text-lg font-bold">Programming</h3>
+        <p class="text-lg leading-loose text-foreground">
+          Finally, I work as a software engineer primarily working on web
+          applications. I'm not sure why considering I'm not good at it, but
+          I've somehow figured out how to make it work. For work I mostly use
+          React, but for hobby projects I quite like Svelte. I know, how
+          original! This website is built with Astro with bits of it being React
+          and Svelte.
+        </p>
+        <h3 class="text-lg font-bold">Contact</h3>
+        <p class="text-lg leading-loose text-foreground">
+          The fastest way to get in touch with me is through Discord. I use the
+          same name on there as pretty much everywhere (@mikumino).
+        </p>
+      </div>
+    </div>
+    <Footer />
+  </div>
+</BaseLayout>
