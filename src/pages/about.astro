@@ -7,6 +7,7 @@ import bopbop from "../images/bopbop.webp";
 import nanamui from "../images/nanamui.png";
 import coffee from "../images/coffee.jpg";
 import { Image } from "astro:assets";
+import Footer from "@/components/Footer.astro";
 ---
 
 <BaseLayout title="mikumino" navbar={false}>
@@ -29,12 +30,12 @@ import { Image } from "astro:assets";
           >
             mikumino
           </a>
-          <p class="text-muted-foreground" transition:name="pronouns">
+          <p class="text-lg text-muted-foreground" transition:name="pronouns">
             (he/him)
           </p>
         </div>
       </div>
-      <div class="flex items-center gap-1">
+      <div class="flex items-center flex-wrap gap-1">
         <a href="/" transition:name="home-card">
           <Button variant={"ghost"} className="text-lg"> Home </Button>
         </a>
@@ -59,6 +60,7 @@ import { Image } from "astro:assets";
           mikumino について
           <Image src={bopbop} alt="bopbop" class="h-8 w-auto" />
         </h2>
+        <h3 class="text-lg font-bold">Japanese and Anime</h3>
         <p class="text-lg leading-loose text-foreground">
           If you're here from Discord there's a good chance you found me in some
           Japanese-related server. I've been learning the language for a bit
@@ -87,6 +89,7 @@ import { Image } from "astro:assets";
           no other piece of fiction has. It's really good, please check it out!
           <Image src={nanamui} alt="nanamui" class="h-28 w-auto mx-auto my-4" />
         </p>
+        <h3 class="text-lg font-bold">Coffee</h3>
         <p class="text-lg leading-loose text-foreground">
           Outside of learning Japanese, I also really enjoy making coffee. While
           I'm no longer at the peak of my experimentation with it, I still enjoy
@@ -112,6 +115,7 @@ import { Image } from "astro:assets";
         <p class="text-sm text-muted-foreground">
           I'm still figuring out latte art please don't make fun of me
         </p>
+        <h3 class="text-lg font-bold">Programming</h3>
         <p class="text-lg leading-loose text-foreground">
           Finally, I work as a software engineer primarily working on web
           applications. I'm not sure why considering I'm not good at it, but
@@ -120,7 +124,13 @@ import { Image } from "astro:assets";
           original! This website is built with Astro with bits of it being React
           and Svelte.
         </p>
+        <h3 class="text-lg font-bold">Contact</h3>
+        <p class="text-lg leading-loose text-foreground">
+          The fastest way to get in touch with me is through Discord. I use the
+          same name on there as pretty much everywhere (@mikumino).
+        </p>
       </div>
     </div>
+    <Footer />
   </div>
 </BaseLayout>

@@ -32,12 +32,10 @@ import NavHamburger from "./NavHamburger";
       </a>
     </div>
     <div class="hidden md:flex flex-row items-center gap-4">
+      <a class={buttonVariants({ variant: "ghost" })} href="/about">About</a>
       <a class={buttonVariants({ variant: "ghost" })} href="/blog">Blog</a>
       <a class={buttonVariants({ variant: "ghost" })} href="/resources"
         >Resources</a
-      >
-      <a class={buttonVariants({ variant: "ghost" })} href="/personal-guides"
-        >Guides</a
       >
       <a class={buttonVariants({ variant: "ghost" })} href="/other">Other</a>
       <ModeToggle client:load />
