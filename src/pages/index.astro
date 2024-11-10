@@ -30,22 +30,29 @@ posts.sort((a, b) => {
           >
             mikumino
           </h1>
-          <p class="text-muted-foreground">(he/him)</p>
+          <p class="text-muted-foreground" transition:name="pronouns">
+            (he/him)
+          </p>
         </div>
       </div>
       <div class="flex items-center gap-1">
-        <Button variant={"ghost"} className="text-lg">
-          <a href="/about">About</a>
-        </Button>
-        <Button variant={"ghost"} className="text-lg">
-          <a href="/blog">Blog</a>
-        </Button>
-        <Button variant={"ghost"} className="text-lg">
-          <a href="/resources">Resources</a>
-        </Button>
-        <Button variant={"ghost"} className="text-lg">
-          <a href="/other">Other</a>
-        </Button>
+        <a href="/" transition:name="home-card">
+          <Button variant={"ghost"} className="text-lg text-primary font-bold">
+            Home
+          </Button>
+        </a>
+        <a href="/about" transition:name="about-card">
+          <Button variant={"ghost"} className="text-lg"> About </Button>
+        </a>
+        <a href="/blog" transition:name="blog-card">
+          <Button variant={"ghost"} className="text-lg"> Blog </Button>
+        </a>
+        <a href="/resources" transition:name="resources-card">
+          <Button variant={"ghost"} className="text-lg"> Resources </Button>
+        </a>
+        <a href="/other" transition:name="other-card">
+          <Button variant={"ghost"} className="text-lg"> Other </Button>
+        </a>
       </div>
       <Separator />
       <div class="flex flex-col gap-4">
