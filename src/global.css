@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    font-family: "Nunito", sans-serif;
+  }
   :root {
     --background: 220 23.076923191547394% 94.90196108818054%; /* base */
     --foreground: 234 16.022099554538727% 35.49019694328308%; /* text */

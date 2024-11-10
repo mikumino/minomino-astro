@@ -1,57 +1,15 @@
 ---
 import "../global.css";
-import icon from "/favicon.ico";
 import Navbar from "../components/Navbar.astro";
-import { ViewTransitions } from "astro:transitions";
 import suisei from "../images/suisei-hoshimachi-suisei.png";
 const { title } = Astro.props;
+import Head from "../components/Head.astro";
 ---
 
 <html lang="en">
   <head>
-    <script is:inline>
-      function setDarkMode(document) {
-        const getThemePreference = () => {
-          if (
-            typeof localStorage !== "undefined" &&
-            localStorage.getItem("theme")
-          ) {
-            return localStorage.getItem("theme");
-          }
-          return window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "theme-light";
-        };
-        const isDark = getThemePreference() === "dark";
-        document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-
-        if (typeof localStorage !== "undefined") {
-          const observer = new MutationObserver(() => {
-            const isDark = document.documentElement.classList.contains("dark");
-            localStorage.setItem("theme", isDark ? "dark" : "theme-light");
-          });
-          observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ["class"],
-          });
-        }
-      }
-
-      setDarkMode(document);
-
-      document.addEventListener("astro:before-swap", (ev) => {
-        // Pass the incoming document to set the theme on it
-        setDarkMode(ev.newDocument);
-      });
-    </script>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href={icon} type="image/x-icon" />
+    <Head />
     <title>{title}</title>
-    <script
-      src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
-    ></script>
-
     <meta property="og:title" content={title} />
     <meta
       property="og:description"
@@ -59,10 +17,8 @@ const { title } = Astro.props;
     />
     <meta property="og:image" content={suisei.src} />
     <meta name="theme-color" content="#e64c3e" />
-    <ViewTransitions />
   </head>
   <body>
-    <div></div>
     <Navbar />
     <slot />
   </body>

@@ -1,0 +1,57 @@
+---
+import icon from "/favicon.ico";
+import { ViewTransitions } from "astro:transitions";
+---
+
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet"
+  />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href={icon} type="image/x-icon" />
+  <script is:inline>
+    function setDarkMode(document) {
+      const getThemePreference = () => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "theme-light";
+      };
+      const isDark = getThemePreference() === "dark";
+      document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+      if (typeof localStorage !== "undefined") {
+        const observer = new MutationObserver(() => {
+          const isDark = document.documentElement.classList.contains("dark");
+          localStorage.setItem("theme", isDark ? "dark" : "theme-light");
+        });
+        observer.observe(document.documentElement, {
+          attributes: true,
+          attributeFilter: ["class"],
+        });
+      }
+    }
+
+    setDarkMode(document);
+
+    document.addEventListener("astro:before-swap", (ev) => {
+      // Pass the incoming document to set the theme on it
+      setDarkMode(ev.newDocument);
+    });
+  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script
+    src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
+  ></script>
+  <ViewTransitions />
+</head>

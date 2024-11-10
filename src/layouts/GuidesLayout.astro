@@ -1,86 +1,56 @@
 ---
-import Navbar from '../components/Navbar.astro';
-import { Image } from 'astro:assets';
-import icon from "/favicon.ico";
-import { ViewTransitions } from "astro:transitions";
-import Footer from '../components/Footer.astro';
-import * as Breadcrumb from '@/components/ui/breadcrumb';
+import Navbar from "../components/Navbar.astro";
+import { Image } from "astro:assets";
+import Head from "../components/Head.astro";
+import Footer from "../components/Footer.astro";
+import * as Breadcrumb from "@/components/ui/breadcrumb";
 
-const {frontmatter} = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
 <html lang="en">
-    <head>
-        <script is:inline>
-            function setDarkMode(document) {
-                const getThemePreference = () => {
-                if (
-                    typeof localStorage !== 'undefined' &&
-                    localStorage.getItem('theme')
-                ) {
-                    return localStorage.getItem('theme');
-                }
-                return window.matchMedia('(prefers-color-scheme: dark)').matches
-                    ? 'dark'
-                    : 'theme-light';
-                };
-                const isDark = getThemePreference() === 'dark';
-                document.documentElement.classList[isDark ? 'add' : 'remove']('dark');
-            
-                if (typeof localStorage !== 'undefined') {
-                const observer = new MutationObserver(() => {
-                    const isDark = document.documentElement.classList.contains('dark');
-                    localStorage.setItem('theme', isDark ? 'dark' : 'theme-light');
-                });
-                observer.observe(document.documentElement, {
-                    attributes: true,
-                    attributeFilter: ['class'],
-                });
-                }
-            }
-            
-            setDarkMode(document);
-            
-            document.addEventListener('astro:before-swap', (ev) => {
-                // Pass the incoming document to set the theme on it
-                setDarkMode(ev.newDocument);
-            });
-        </script>
-        <meta charset="utf-8">
-        <title>{frontmatter.title} - minomino</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href={icon} type="image/x-icon" />
-        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-        <ViewTransitions />
-    </head>
-    <body>
-        <div>
-            <Navbar />
-        </div>
-        <div class="flex flex-col mt-4 mb-6 mx-6 md:mx-auto md:max-w-fit">
-            <div class="mb-4">
-                <Breadcrumb.Breadcrumb>
-                    <Breadcrumb.BreadcrumbList>
-                        <Breadcrumb.BreadcrumbItem>
-                            <Breadcrumb.BreadcrumbLink href="/">Home</Breadcrumb.BreadcrumbLink>
-                        </Breadcrumb.BreadcrumbItem>
-                        <Breadcrumb.BreadcrumbSeparator />
-                        <Breadcrumb.BreadcrumbItem>
-                            <Breadcrumb.BreadcrumbLink href="/personal-guides">Personal Guides</Breadcrumb.BreadcrumbLink>
-                        </Breadcrumb.BreadcrumbItem>
-                        <Breadcrumb.BreadcrumbSeparator />
-                        <Breadcrumb.BreadcrumbItem>
-                            {frontmatter.title}
-                        </Breadcrumb.BreadcrumbItem>
-                    </Breadcrumb.BreadcrumbList>
-                </Breadcrumb.Breadcrumb>
-            </div>
-            <h1 class="text-4xl font-bold mb-4">{frontmatter.title}</h1>
-            <article class="prose dark:prose-invert lg:prose-lg prose-a:decoration-primary prose-a:underline-offset-4 prose-a:decoration-2 prose-a:bg-opacity-70 hover:prose-a:bg-popover prose-a:transition-all max-w-3xl min-h-screen">
-                <Image src={frontmatter.image} alt="Post image" class="rounded-xl mb-4" transition:name={frontmatter.title} />
-                <slot />
-            </article>
-        </div>
-    </body>
-    <Footer />
+  <head>
+    <Head />
+    <title>{frontmatter.title} - minomino</title>
+  </head>
+  <body>
+    <div>
+      <Navbar />
+    </div>
+    <div class="flex flex-col mt-4 mb-6 mx-6 md:mx-auto md:max-w-fit">
+      <div class="mb-4">
+        <Breadcrumb.Breadcrumb>
+          <Breadcrumb.BreadcrumbList>
+            <Breadcrumb.BreadcrumbItem>
+              <Breadcrumb.BreadcrumbLink href="/"
+                >Home</Breadcrumb.BreadcrumbLink
+              >
+            </Breadcrumb.BreadcrumbItem>
+            <Breadcrumb.BreadcrumbSeparator />
+            <Breadcrumb.BreadcrumbItem>
+              <Breadcrumb.BreadcrumbLink href="/personal-guides"
+                >Personal Guides</Breadcrumb.BreadcrumbLink
+              >
+            </Breadcrumb.BreadcrumbItem>
+            <Breadcrumb.BreadcrumbSeparator />
+            <Breadcrumb.BreadcrumbItem>
+              {frontmatter.title}
+            </Breadcrumb.BreadcrumbItem>
+          </Breadcrumb.BreadcrumbList>
+        </Breadcrumb.Breadcrumb>
+      </div>
+      <h1 class="text-4xl font-bold mb-4">{frontmatter.title}</h1>
+      <article
+        class="prose dark:prose-invert lg:prose-lg prose-a:decoration-primary prose-a:underline-offset-4 prose-a:decoration-2 prose-a:bg-opacity-70 hover:prose-a:bg-popover prose-a:transition-all max-w-3xl min-h-screen"
+      >
+        <Image
+          src={frontmatter.image}
+          alt="Post image"
+          class="rounded-xl mb-4"
+          transition:name={frontmatter.title}
+        />
+        <slot />
+      </article>
+    </div>
+  </body><Footer />
 </html>
