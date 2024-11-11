@@ -5,21 +5,17 @@ import { Image } from "astro:assets";
 import { buttonVariants } from "./ui/button";
 import { ModeToggle } from "./ModeToggle";
 import NavHamburger from "./NavHamburger";
+const path = Astro.url.pathname;
 ---
 
-<div
-  class="md:max-w-4xl relative mx-auto mt-2 rounded-lg p-2"
-  transition:name="nav"
->
+<div class="md:max-w-4xl relative mx-auto border-b p-2" transition:name="nav">
   <div class="md:hidden absolute left-4 top-2">
     <ModeToggle client:load />
   </div>
   <NavHamburger client:load />
   <div class="flex flex-row items-center justify-center md:justify-between">
     <div class="flex flex-row items-center">
-      <a
-        href="/"
-        class={`${buttonVariants({ variant: "ghost" })} text-xl text-primary`}
+      <a href="/" class={`flex items-center text-xl text-primary`}
         ><Image
           src={koito}
           alt={"koito"}
@@ -32,12 +28,31 @@ import NavHamburger from "./NavHamburger";
       </a>
     </div>
     <div class="hidden md:flex flex-row items-center gap-4">
-      <a class={buttonVariants({ variant: "ghost" })} href="/about">About</a>
-      <a class={buttonVariants({ variant: "ghost" })} href="/blog">Blog</a>
-      <a class={buttonVariants({ variant: "ghost" })} href="/resources"
-        >Resources</a
+      <a
+        class={`${buttonVariants({ variant: "ghost" })} ${path === "/" && "text-primary font-bold"}`}
+        href="/"
+        transition:name="home-card">Home</a
       >
-      <a class={buttonVariants({ variant: "ghost" })} href="/other">Other</a>
+      <a
+        class={`${buttonVariants({ variant: "ghost" })} ${path === "/about" && "text-primary font-bold"}`}
+        href="/about"
+        transition:name="about-card">About</a
+      >
+      <a
+        class={`${buttonVariants({ variant: "ghost" })} ${path === "/blog" && "text-primary font-bold"}`}
+        href="/blog"
+        transition:name="blog-card">Blog</a
+      >
+      <a
+        class={`${buttonVariants({ variant: "ghost" })} ${path === "/resources" && "text-primary font-bold"}`}
+        href="/resources"
+        transition:name="resources-card">Resources</a
+      >
+      <a
+        class={`${buttonVariants({ variant: "ghost" })} ${path === "/other" && "text-primary font-bold"}`}
+        href="/other"
+        transition:name="other-card">Other</a
+      >
       <ModeToggle client:load />
     </div>
   </div>

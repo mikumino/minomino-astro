@@ -1,21 +1,24 @@
 ---
 import "../global.css";
 import Navbar from "../components/Navbar.astro";
-import suisei from "../images/suisei-hoshimachi-suisei.png";
+import koito from "../images/koito.png";
 const { title, navbar = true } = Astro.props;
 import Head from "../components/Head.astro";
+import { ViewTransitions } from "astro:transitions";
 ---
 
 <html lang="en">
   <head>
     <Head />
+    <ViewTransitions />
+
     <title>{title}</title>
     <meta property="og:title" content={title} />
     <meta
       property="og:description"
       content="mikumino's website about Japanese learning and other things."
     />
-    <meta property="og:image" content={suisei.src} />
+    <meta property="og:image" content={koito.src} />
     <meta name="theme-color" content="#e64c3e" />
   </head>
   <body>

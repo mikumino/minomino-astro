@@ -8,6 +8,7 @@ import nanamui from "../images/nanamui.png";
 import coffee from "../images/coffee.jpg";
 import { Image } from "astro:assets";
 import Footer from "@/components/Footer.astro";
+import CardHeader from "@/components/CardHeader.astro";
 ---
 
 <BaseLayout title="mikumino" navbar={false}>
@@ -15,46 +16,7 @@ import Footer from "@/components/Footer.astro";
     <div
       class="flex flex-col flex-grow gap-6 w-full max-w-2xl rounded-lg border p-8"
     >
-      <div class="flex items-center gap-4">
-        <Image
-          src={koito}
-          transition:name="koito"
-          alt="koito"
-          class="w-28 rounded-full"
-        />
-        <div class="flex flex-col gap-1">
-          <a
-            class="text-4xl font-bold text-primary"
-            href="/"
-            transition:name="mikumino"
-          >
-            mikumino
-          </a>
-          <p class="text-lg text-muted-foreground" transition:name="pronouns">
-            (he/him)
-          </p>
-        </div>
-      </div>
-      <div class="flex items-center flex-wrap gap-1">
-        <a href="/" transition:name="home-card">
-          <Button variant={"ghost"} className="text-lg"> Home </Button>
-        </a>
-        <a href="/about" transition:name="about-card">
-          <Button variant={"ghost"} className="text-lg text-primary font-bold">
-            About
-          </Button>
-        </a>
-        <a href="/blog" transition:name="blog-card">
-          <Button variant={"ghost"} className="text-lg"> Blog </Button>
-        </a>
-        <a href="/resources" transition:name="resources-card">
-          <Button variant={"ghost"} className="text-lg"> Resources </Button>
-        </a>
-        <a href="/other" transition:name="other-card">
-          <Button variant={"ghost"} className="text-lg"> Other </Button>
-        </a>
-      </div>
-      <Separator />
+      <CardHeader />
       <div class="flex flex-col gap-4">
         <h2 class="flex text-2xl font-bold gap-2 items-center">
           mikumino について
@@ -120,7 +82,7 @@ import Footer from "@/components/Footer.astro";
           Finally, I work as a software engineer primarily working on web
           applications. I'm not sure why considering I'm not good at it, but
           I've somehow figured out how to make it work. For work I mostly use
-          React, but for hobby projects I quite like Svelte. I know, how
+          React, but for hobby projects I quite like Svelte. I know, very
           original! This website is built with Astro with bits of it being React
           and Svelte.
         </p>
