@@ -34,22 +34,22 @@ const path = Astro.url.pathname;
         transition:name="home-card">Home</a
       >
       <a
-        class={`${buttonVariants({ variant: "ghost" })} ${path === "/about" && "text-primary font-bold"}`}
+        class={`${buttonVariants({ variant: "ghost" })} ${path.replaceAll("/", "") === "about" && "text-primary font-bold"}`}
         href="/about"
         transition:name="about-card">About</a
       >
       <a
-        class={`${buttonVariants({ variant: "ghost" })} ${path === "/blog" && "text-primary font-bold"}`}
+        class={`${buttonVariants({ variant: "ghost" })} ${path.replaceAll("/", "") === "blog" && "text-primary font-bold"}`}
         href="/blog"
         transition:name="blog-card">Blog</a
       >
       <a
-        class={`${buttonVariants({ variant: "ghost" })} ${path === "/resources" && "text-primary font-bold"}`}
+        class={`${buttonVariants({ variant: "ghost" })} ${path.replaceAll("/", "") === "resources" && "text-primary font-bold"}`}
         href="/resources"
         transition:name="resources-card">Resources</a
       >
       <a
-        class={`${buttonVariants({ variant: "ghost" })} ${path === "/other" && "text-primary font-bold"}`}
+        class={`${buttonVariants({ variant: "ghost" })} ${path.replaceAll("/", "") === "other" && "text-primary font-bold"}`}
         href="/other"
         transition:name="other-card">Other</a
       >

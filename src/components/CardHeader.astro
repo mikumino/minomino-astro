@@ -36,7 +36,7 @@ const path = Astro.url.pathname;
     <a href="/about" transition:name="about-card">
       <Button
         variant={"ghost"}
-        className={`text-lg ${path === "/about" && "text-primary font-bold"}`}
+        className={`text-lg ${path.replaceAll("/", "") === "about" && "text-primary font-bold"}`}
       >
         About
       </Button>
@@ -44,7 +44,7 @@ const path = Astro.url.pathname;
     <a href="/blog" transition:name="blog-card">
       <Button
         variant={"ghost"}
-        className={`text-lg ${path === "/blog" && "text-primary font-bold"}`}
+        className={`text-lg ${path.replaceAll("/", "") === "blog" && "text-primary font-bold"}`}
       >
         Blog
       </Button>
@@ -52,7 +52,7 @@ const path = Astro.url.pathname;
     <a href="/resources" transition:name="resources-card">
       <Button
         variant={"ghost"}
-        className={`text-lg ${path === "/resources" && "text-primary font-bold"}`}
+        className={`text-lg ${path.replaceAll("/", "") === "resources" && "text-primary font-bold"}`}
       >
         Resources
       </Button>
@@ -60,7 +60,7 @@ const path = Astro.url.pathname;
     <a href="/other" transition:name="other-card">
       <Button
         variant={"ghost"}
-        className={`text-lg ${path === "/other" && "text-primary font-bold"}`}
+        className={`text-lg ${path.replaceAll("/", "") === "other" && "text-primary font-bold"}`}
       >
         Other
       </Button>
