@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 import BlogCard from "../components/BlogCard.astro";
 import { ViewTransitions } from "astro:transitions";
+import { Image } from "astro:assets";
 const posts = await getCollection("blog");
 posts.sort((a, b) => {
   return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
@@ -13,11 +14,45 @@ posts.sort((a, b) => {
   <head>
     <ViewTransitions />
   </head>
-  <div class="m-6 max-w-4xl md:mx-auto">
-    <h1 class="text-4xl font-bold mb-4">Blog</h1>
-    <p class="mt-2">I think too much and you can read about it here.</p>
-    <div class="grid md:grid-cols-2 gap-3 max-w-4xl mt-6">
-      {posts.map((post) => <BlogCard post={post} />)}
+  <div class="p-6 max-w-4xl md:mx-auto">
+    <a
+      href={`/blog/${posts[0].slug}`}
+      class="hidden md:flex group relative w-full"
+    >
+      <div class="w-full h-full relative overflow-hidden rounded-md">
+        <div
+          class="absolute w-full h-full bg-gradient-to-b from-transparent from-50% to-black to-95% opacity-90 z-10"
+        >
+        </div>
+        <Image
+          src={posts[0].data.image}
+          alt={posts[0].data.imageAlt}
+          class="rounded-md h-full object-cover overflow-hidden group-hover:scale-105 transition-all"
+        />
+      </div>
+      <div class="flex flex-col gap-4 absolute bottom-7 left-7 z-20">
+        <div
+          class="flex relative w-full h-full p-1 items-center justify-center"
+        >
+          <h2 class="font-bold text-4xl w-fit mb-2">
+            {posts[0].data.title}
+          </h2>
+        </div>
+        <div class="flex flex-row gap-2 p-1">
+          <p class="w-fit">
+            {posts[0].data.description} ・ {
+              posts[0].data.date.toLocaleDateString()
+            } ・ {Math.floor(posts[0].body.split(" ").length / 183)} minute read
+          </p>
+        </div>
+      </div>
+    </a>
+    <h1 class="md:hidden text-4xl font-bold mb-4">Blog</h1>
+    <div class="md:hidden">
+      <BlogCard post={posts[0]} />
+    </div>
+    <div class="grid md:grid-cols-3 gap-4 max-w-4xl mt-6">
+      {posts.slice(1).map((post) => <BlogCard post={post} />)}
     </div>
   </div>
 </BaseLayout>

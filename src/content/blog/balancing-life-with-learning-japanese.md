@@ -2,7 +2,7 @@
 title: Balancing Life with Learning Japanese
 description: Progress is progress, even when it's not a lot.
 date: 2024-06-30T15:06:00
-image: ./images/mpv-shot0084.jpg
+image: ./images/mpv-shot0122.jpg
 imageAlt: Roxy from Mushoku Tensei blushing
 ---
 This is a monthly report for my Japanese learning where I basically just dump all thoughts related to learning the language. You can read the rest of the reports... later, because this is the first one I'm writing :P

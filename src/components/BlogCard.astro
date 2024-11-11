@@ -5,13 +5,13 @@ const { post } = Astro.props;
 
 <a class="group h-full" href={`/blog/${post.slug}`}>
   <div
-    class="w-full group-hover:shadow-xl mb-6 rounded-lg group-hover:-translate-y-2 transition"
+    class="w-full h-full border group-hover:shadow-xl mb-6 rounded-sm group-hover:-translate-y-2 transition"
   >
     <Image
       transition:name={post.data.title}
       src={post.data.image}
       alt={post.data.imageAlt}
-      class="w-full mx-auto rounded-lg mb-2"
+      class="w-full mx-auto rounded-sm mb-2"
     />
     <div class="py-4 px-6">
       <h2
