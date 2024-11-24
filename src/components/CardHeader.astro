@@ -4,6 +4,7 @@ import koito from "../images/koito.png";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { ModeToggle } from "./ModeToggle";
+import { fade } from "astro:transitions";
 const path = Astro.url.pathname;
 ---
 
@@ -11,21 +12,34 @@ const path = Astro.url.pathname;
   <Image
     src={koito}
     transition:name="koito"
+    transition:animate={"none"}
+    transition:persist
     alt="koito"
     class="w-28 rounded-full"
   />
   <div class="flex flex-col gap-1">
-    <h1 class="text-4xl font-bold text-primary" transition:name="mikumino">
+    <h1
+      class="text-4xl font-bold text-primary"
+      transition:name="mikumino"
+      transition:animate="none"
+      transition:persist
+    >
       mikumino
     </h1>
-    <p class="text-xl text-muted-foreground" transition:name="pronouns">
+    <p
+      class="text-xl text-muted-foreground"
+      transition:name="pronouns"
+      transition:animate="none"
+      transition:persist
+    >
       (he/him)
     </p>
   </div>
 </div>
+
 <div class="flex justify-between">
   <div class="flex items-center flex-wrap gap-1">
-    <a href="/" transition:name="home-card">
+    <a href="/" transition:name="home-card" transition:animate="none">
       <Button
         variant={"ghost"}
         className={`text-lg ${path === "/" && "text-primary font-bold"}`}
@@ -33,7 +47,7 @@ const path = Astro.url.pathname;
         Home
       </Button>
     </a>
-    <a href="/about" transition:name="about-card">
+    <a href="/about" transition:name="about-card" transition:animate="none">
       <Button
         variant={"ghost"}
         className={`text-lg ${path.replaceAll("/", "") === "about" && "text-primary font-bold"}`}
@@ -41,7 +55,12 @@ const path = Astro.url.pathname;
         About
       </Button>
     </a>
-    <a href="/blog" transition:name="blog-card">
+    <a
+      href="/blog"
+      transition:name="blog-card"
+      transition:animate="none"
+      transition:persist
+    >
       <Button
         variant={"ghost"}
         className={`text-lg ${path.replaceAll("/", "") === "blog" && "text-primary font-bold"}`}
@@ -49,7 +68,12 @@ const path = Astro.url.pathname;
         Blog
       </Button>
     </a>
-    <a href="/resources" transition:name="resources-card">
+    <a
+      href="/resources"
+      transition:name="resources-card"
+      transition:animate="none"
+      transition:persist
+    >
       <Button
         variant={"ghost"}
         className={`text-lg ${path.replaceAll("/", "") === "resources" && "text-primary font-bold"}`}
@@ -57,7 +81,12 @@ const path = Astro.url.pathname;
         Resources
       </Button>
     </a>
-    <a href="/other" transition:name="other-card">
+    <a
+      href="/other"
+      transition:name="other-card"
+      transition:animate="none"
+      transition:persist
+    >
       <Button
         variant={"ghost"}
         className={`text-lg ${path.replaceAll("/", "") === "other" && "text-primary font-bold"}`}
@@ -66,7 +95,11 @@ const path = Astro.url.pathname;
       </Button>
     </a>
   </div>
-  <div transition:name="mode-toggle">
+  <div
+    transition:name="mode-toggle"
+    transition:animate="none"
+    transition:persist
+  >
     <ModeToggle client:load />
   </div>
 </div>
