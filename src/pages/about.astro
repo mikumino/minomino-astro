@@ -1,23 +1,43 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import koito from "../images/koito.png";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import bopbop from "../images/bopbop.webp";
 import nanamui from "../images/nanamui.png";
 import coffee from "../images/coffee.jpg";
 import { Image } from "astro:assets";
 import Footer from "@/components/Footer.astro";
 import CardHeader from "@/components/CardHeader.astro";
+const anim = {
+  old: {
+    name: "page-turn-left",
+    duration: "0.2s",
+    easing: "quad-out",
+  },
+  new: {
+    name: "page-turn-right",
+    duration: "0.2s",
+    easing: "quad-out",
+    direction: "reverse",
+  },
+};
+
+const customTransition = {
+  forwards: anim,
+  backwards: anim,
+};
 ---
 
 <BaseLayout title="mikumino" navbar={false}>
   <div class="flex flex-col items-center m-4">
     <div
       class="flex flex-col flex-grow gap-6 w-full max-w-2xl rounded-lg border p-8"
+      transition:name="card"
     >
       <CardHeader />
-      <div class="flex flex-col gap-4">
+      <div
+        class="flex flex-col gap-4"
+        transition:animate={customTransition}
+        transition:name="body"
+      >
         <h2 class="flex text-2xl font-bold gap-2 items-center">
           mikumino について
           <Image src={bopbop} alt="bopbop" class="h-8 w-auto" />

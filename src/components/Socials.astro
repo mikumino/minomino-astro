@@ -1,0 +1,24 @@
+---
+import SocialButton from "./SocialButton.tsx";
+import { Icon } from "astro-icon/components";
+---
+
+<div class="flex gap-1 items-center">
+  <SocialButton
+    href="https://anilist.co/user/mikumino"
+    text="Anilist"
+    client:load
+  >
+    <Icon name="simple-icons:anilist" />
+  </SocialButton>
+  <SocialButton
+    href="https://bsky.app/profile/mikumino.moe"
+    text="Bluesky"
+    client:load
+  >
+    <Icon name="simple-icons:bluesky" />
+  </SocialButton>
+  <SocialButton href="https://github.com/mikumino" text="GitHub" client:load>
+    <Icon name="simple-icons:github" />
+  </SocialButton>
+</div>

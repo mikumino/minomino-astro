@@ -1,11 +1,14 @@
 ---
-import logo from '../images/logo.png';
-import { Image } from 'astro:assets';
+import logo from "../images/logo.png";
+import { Image } from "astro:assets";
+import Socials from "./Socials.astro";
 ---
+
 <footer class="p-10">
-    <div class="bg-muted max-w-4xl mx-auto h-[1px] mb-6" />
-    <div class="flex flex-col items-center justify-center space-y-4">
-        <Image src={logo} alt="Mino Logo" class="w-10 h-10" />
-        <p class="text-sm text-primary font-bold select-none">mikumino</p>
-    </div>
+  <div class="bg-muted max-w-4xl mx-auto h-[1px] mb-6"></div>
+  <div class="flex flex-col items-center justify-center space-y-4">
+    <Image src={logo} alt="Mino Logo" class="w-10 h-10" />
+    <p class="text-sm text-primary font-bold select-none">mikumino</p>
+    <Socials />
+  </div>
 </footer>

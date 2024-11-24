@@ -66,7 +66,9 @@ const path = Astro.url.pathname;
       </Button>
     </a>
   </div>
-  <ModeToggle client:load />
+  <div transition:name="mode-toggle">
+    <ModeToggle client:load />
+  </div>
 </div>
 
 <Separator />
