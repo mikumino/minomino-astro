@@ -23,5 +23,6 @@ pnpm-debug.log*
 # obsidian files
 .obsidian
 
-# ignore drafts
+# ignore drafts, notes, etc.
 draft.*.md
+_notes
