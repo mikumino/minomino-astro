@@ -99,12 +99,12 @@ import { Book, ExternalLink, Star, Tags } from "lucide-react";
           </div>
         </div>
         <Separator />
+        <article
+          class="prose dark:prose-invert prose-h1:text-primary prose-h2:text-secondary-foreground prose-strong:text-primary/80 prose-img:w-full prose-img:rounded-lg prose-a:decoration-primary prose-a:underline-offset-4 prose-a:decoration-2 prose-a:bg-opacity-70 hover:prose-a:bg-popover prose-a:transition-all max-w-3xl min-h-screen"
+        >
+          <slot />
+        </article>
       </div>
-      <article
-        class="prose dark:prose-invert prose-h1:text-primary prose-h2:text-secondary-foreground prose-strong:text-primary/80 prose-img:w-full prose-img:rounded-lg prose-a:decoration-primary prose-a:underline-offset-4 prose-a:decoration-2 prose-a:bg-opacity-70 hover:prose-a:bg-popover prose-a:transition-all max-w-3xl min-h-screen"
-      >
-        <slot />
-      </article>
     </div>
   </body>
 </html>
