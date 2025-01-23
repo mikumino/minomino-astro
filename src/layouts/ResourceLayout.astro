@@ -1,0 +1,110 @@
+---
+import Head from "@/components/Head.astro";
+import Navbar from "@/components/Navbar.astro";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Image } from "astro:assets";
+const { frontmatter } = Astro.props;
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { Book, ExternalLink, Star, Tags } from "lucide-react";
+---
+
+<html lang="en">
+  <head>
+    <Head />
+    <title>{frontmatter.title} - minomino</title>
+    <meta property="og:title" content={`${frontmatter.title} - mikumino`} />
+    <meta property="og:description" content={frontmatter.description} />
+    <meta property="og:image" content={frontmatter.image.src} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#e64c3e" />
+  </head>
+  <body>
+    <div>
+      <Navbar />
+    </div>
+    <div class="flex flex-col mt-4 mb-6 mx-6 md:mx-auto md:max-w-screen-md">
+      <div class="mb-4">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/resources">Resources</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              {frontmatter.title}
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+      <div class="flex flex-col gap-4">
+        <h1 class="text-4xl font-black">{frontmatter.title}</h1>
+        <p class="text-foreground/75">{frontmatter.description}</p>
+        <Image
+          src={frontmatter.image}
+          alt="Post image"
+          class="rounded-xl mb-4"
+          transition:name={frontmatter.title}
+        />
+        <Separator />
+        <div class="flex flex-col gap-2">
+          <div class="flex gap-1 items-center">
+            <Book size={20} className="mr-2" />
+            {
+              frontmatter.recommended && (
+                <Badge variant={"yellow"}>
+                  <Star size={16} className="mr-1" />
+                  Recommended
+                </Badge>
+              )
+            }
+            {
+              frontmatter.url && (
+                <a
+                  href={frontmatter.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="max-h-fit"
+                >
+                  <Badge variant={"blue"} className="h-full">
+                    <ExternalLink size={16} className="mr-1" />
+                    Link
+                  </Badge>
+                </a>
+              )
+            }
+            {
+              frontmatter.usage && (
+                <Badge variant={frontmatter.usage}>{frontmatter.usage}</Badge>
+              )
+            }
+          </div>
+          <div class="flex gap-1 items-center">
+            <Tags size={20} className="mr-2" />
+            {
+              frontmatter.tags.map((tag: string) => (
+                <Badge variant={"outline"}>{tag}</Badge>
+              ))
+            }
+          </div>
+        </div>
+        <Separator />
+      </div>
+      <article
+        class="prose dark:prose-invert prose-h1:text-primary prose-h2:text-secondary-foreground prose-strong:text-primary/80 prose-img:w-full prose-img:rounded-lg prose-a:decoration-primary prose-a:underline-offset-4 prose-a:decoration-2 prose-a:bg-opacity-70 hover:prose-a:bg-popover prose-a:transition-all max-w-3xl min-h-screen"
+      >
+        <slot />
+      </article>
+    </div>
+  </body>
+</html>

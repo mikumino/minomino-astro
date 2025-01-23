@@ -1,76 +1,29 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { Image } from "astro:assets";
-import addons from "../images/addons.png";
 import Footer from "../components/Footer.astro";
+import { getCollection } from "astro:content";
+
+const resources = await getCollection("resources");
 ---
 
 <BaseLayout title="Resources - minomino">
   <div class="my-6 mx-6 md:mx-auto md:max-w-4xl" transition:name="card">
-    <article class="max-w-4xl">
-      <h2 class="text-4xl font-bold mb-4">Resources</h2>
-      <article
-        class="prose dark:prose-invert prose-a:text-primary prose-a:no-underline max-w-4xl"
-      >
-        <p>
-          These resources are largely compiled from other resource pages. I
-          compiled the ones that I specifically use/have used to be less large.
-        </p>
-        <p>
-          I may include many different links for one category. The best will be
-          labeled with a ✨ and ones that I use will be bolded.
-        </p>
-        <p>This page is a WIP.</p>
-        <h3>Resource Pages</h3>
-        <a
-          class="hover:text-mino-500 transition-colors font-bold"
-          href="https://learnjapanese.moe/resources/"
-          >TheMoeWay Resources Page</a
-        > (✨) - Very comprehensive. I've used a lot from here.
-        <br />
-        <a
-          class="hover:text-mino-500 transition-colors"
-          href="https://www.notion.so/Refold-Japanese-Content-Resources-WIP-9121097535e74f6ba501c93b1773e70c"
-          >Refold Resources Page</a
-        > - Haven't used much. Some content recommendations.
-        <h3>Anki</h3>
-        <h4>Anki Decks</h4>
-        <a
-          class="hover:text-mino-500 transition-colors font-bold"
-          href="https://anacreondjt.gitlab.io/docs/coredeck/">Core 2.3k</a
-        > (✨) - A popular, free deck. You might've heard people refer to a Core
-        2k/6k deck, this is an improved version of that. My top recommendation since
-        it's free.
-        <br />
-        <a
-          class="hover:text-mino-500 transition-colors"
-          href="https://refold.la/japanese/deck/">Refold JP1K</a
-        > - 1,000 common words used in slice-of-life anime, best if starting with
-        anime. The deck is high quality but overpriced.
-        <h4>Anki Note Types</h4>
-        <a
-          class="hover:text-mino-500 transition-colors font-bold"
-          href="https://arbyste.github.io/jp-mining-note-prerelease/"
-          >JP Mining Note</a
-        > (✨) - This is THE note type. It's packed full of features and is very
-        flexible. This is easily my favorite.
-        <br />
-        <a
-          class="hover:text-mino-500 transition-colors"
-          href="https://aquafina-water-bottle.github.io/jp-mining-note/alternatives/#note-types"
-          >Aquafina's Alternatives Page</a
-        > - Every notable alternative. I'd use Anime Cards if I wasn't using JP Mining
-        Note.
-        <h4>Anki Addons</h4>
-        <a
-          class="hover:text-mino-500 transition-colors font-bold"
-          href="https://drive.google.com/file/d/1oaRPN88O071bzvUJtdHCInvLF8n9BCln/view?usp=sharing"
-          >Anki Addon Pack</a
-        > (✨) - These are the Anki addons I have installed. You can unzip this into
-        your addons21 folder. Make sure to check for updates after installing.
-        <Image src={addons} alt="Anki Addon Pack" class="mx-auto rounded-lg" />
-      </article>
-    </article>
+    <h1 class="text-4xl font-bold">Resources</h1>
+    <div class="flex flex-col gap-4">
+      {
+        resources.map((resource) => (
+          <a
+            href={`/resources/${resource.slug}`}
+            class="flex flex-col gap-2 rounded-lg p-4 transition:all hover:bg-popover"
+          >
+            <h2 class="text-xl font-bold">{resource.data.title}</h2>
+            <p class="text-sm text-muted-foreground">
+              {resource.data.description}
+            </p>
+          </a>
+        ))
+      }
+    </div>
   </div>
   <Footer />
 </BaseLayout>

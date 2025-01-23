@@ -28,14 +28,14 @@ const resourcesCollection = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
-      description: z.string().optional(),
+      description: z.string().nullish(),
       image: image(),
       imageAlt: z.string(),
-      url: z.string().optional(),
-      usage: z.enum(["in_use", "used", "not_used"]).optional(),
+      url: z.string().nullish(),
+      usage: z.enum(["Currently Use", "Used", "Not Used"]).nullish(),
       recommended: z.boolean(),
-      category: z.string().optional(),
-      tags: z.array(z.string()).optional(),
+      category: z.string().nullish(),
+      tags: z.array(z.string()).nullish(),
     }),
 });
 
