@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets";
+import { Badge } from "./ui/badge";
+import { Star } from "lucide-react";
+const { resource } = Astro.props;
+---
+
+<a class="group h-full" href={`/resources/${resource.slug}`}>
+  <div
+    class="w-full h-full border group-hover:shadow-xl mb-6 rounded-sm group-hover:-translate-y-2 transition"
+  >
+    <Image
+      transition:name={resource.data.title}
+      src={resource.data.image}
+      alt={resource.data.imageAlt}
+      class="w-full mx-auto rounded-sm mb-2"
+    />
+    <div class="flex flex-col gap-2 py-4 px-6">
+      <h2
+        class="text-2xl font-extrabold text-secondary-foreground font-display"
+      >
+        {resource.data.title}
+      </h2>
+      <div class="flex gap-1 items-center">
+        {
+          resource.data.recommended && (
+            <Badge variant={"yellow"} className="w-fit">
+              <Star size={16} className="mr-1" />
+              Recommended
+            </Badge>
+          )
+        }
+        {
+          resource.data.category && (
+            <Badge variant={"outline"}>{resource.data.category}</Badge>
+          )
+        }
+      </div>
+      <p>{resource.data.description}</p>
+    </div>
+  </div>
+</a>
