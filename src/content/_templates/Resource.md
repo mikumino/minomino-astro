@@ -1,10 +1,10 @@
 ---
 title: <% tp.file.title %>
 description: <% tp.file.title %>
-image: ../images/mining.webp
+image: ../images/mining.png
 imageAlt: <% tp.file.title %>
 url: 
-usage: not_used
+usage: Not Used
 recommended: false
 category: 
 tags:

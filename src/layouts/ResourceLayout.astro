@@ -92,7 +92,7 @@ import { Book, ExternalLink, Star, Tags } from "lucide-react";
           <div class="flex gap-1 items-center">
             <Tags size={20} className="mr-2" />
             {
-              frontmatter.tags.map((tag: string) => (
+              frontmatter.tags?.map((tag: string) => (
                 <Badge variant={"outline"}>{tag}</Badge>
               ))
             }
