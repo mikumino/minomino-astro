@@ -23,6 +23,8 @@ content:
         required: true
         options:
           input: "../images"
+          output: "../images"
+          path: "../images"
       - name: imageAlt
         label: Image Alt Text
         type: string
