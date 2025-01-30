@@ -21,10 +21,6 @@ content:
         label: Image
         type: image
         required: true
-        options:
-          input: "../images"
-          output: "../images"
-          path: "../images"
       - name: imageAlt
         label: Image Alt Text
         type: string
@@ -32,6 +28,11 @@ content:
       - name: body
         label: Body
         type: rich-text
+        options:
+          image:
+            path: "../images"
+            input: "../images"
+            output: "../images"
   - name: resources
     label: Resources
     path: src/content/resources
