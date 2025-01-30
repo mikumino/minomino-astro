@@ -21,6 +21,8 @@ content:
         label: Image
         type: image
         required: true
+        options:
+          input: "../images"
       - name: imageAlt
         label: Image Alt Text
         type: string
