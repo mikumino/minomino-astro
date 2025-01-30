@@ -30,7 +30,7 @@ content:
         type: rich-text
         options:
           image:
-            path: "../images"
+            path: "../images/test"
             input: "../images"
             output: "../images"
   - name: resources
