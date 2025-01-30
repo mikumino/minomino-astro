@@ -1,7 +1,7 @@
 ---
 title: Yomitan
 description: A pop-up dictionary extension for browsers that makes look-ups quick and easy.
-image: ../images/mining.png
+image: ../images/yomitan.webp
 imageAlt: Yomitan
 url: https://yomitan.wiki/
 usage: Currently Use
