@@ -25,6 +25,9 @@ content:
         label: Image Alt Text
         type: string
         required: true
+      - name: body
+        label: Body
+        type: rich-text
   - name: resources
     label: Resources
     path: src/content/resources
