@@ -1,0 +1,77 @@
+media: "src/content/images"
+content:
+  - name: blog
+    label: Blog
+    path: src/content/blog
+    type: collection
+    filename: "{primary}.md"
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: string
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: image
+        label: Image
+        type: image
+        required: true
+      - name: imageAlt
+        label: Image Alt Text
+        type: string
+        required: true
+      - name: body
+        label: Body
+        type: rich-text
+        options:
+          image:
+            path: "../images/test"
+            input: "../images"
+            output: "../images"
+  - name: resources
+    label: Resources
+    path: src/content/resources
+    type: collection
+    filename: "{primary}.md"
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: string
+      - name: image
+        label: Image
+        type: image
+        required: true
+      - name: imageAlt
+        label: Image Alt Text
+        type: string
+        required: true
+      - name: url
+        label: URL
+        type: string
+      - name: usage
+        label: Usage
+        type: string
+      - name: recommended
+        label: Recommended
+        type: boolean
+      - name: category
+        label: Category
+        type: string
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: body
+        label: Body
+        type: rich-text
+      
+        
