@@ -34,7 +34,7 @@ const resourcesCollection = defineCollection({
       url: z.string().nullish(),
       usage: z.enum(["Currently Use", "Used", "Not Used"]).nullish(),
       recommended: z.boolean(),
-      category: z.string().nullish(),
+      category: z.string(),
       tags: z.array(z.string()).nullish(),
     }),
 });

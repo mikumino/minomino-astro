@@ -5,13 +5,46 @@ import { getCollection } from "astro:content";
 import ResourceCard from "@/components/ResourceCard.astro";
 
 const resources = await getCollection("resources");
+
+const categories: Record<string, typeof resources> = {};
+resources.forEach((resource) => {
+  if (!categories[resource.data.category]) {
+    categories[resource.data.category] = [];
+  }
+  categories[resource.data.category].push(resource);
+});
 ---
 
 <BaseLayout title="Resources - minomino">
-  <div class="my-6 mx-6 md:mx-auto md:max-w-4xl" transition:name="card">
-    <h1 class="text-4xl font-bold mb-6">Resources</h1>
+  <div
+    class="flex flex-col gap-6 my-6 mx-6 md:mx-auto md:max-w-4xl"
+    transition:name="card"
+  >
+    <h1 class="text-4xl font-bold">Resources</h1>
+    <p class="text-foreground/75">
+      A collection of resources I've found useful.
+    </p>
     <div class="grid md:grid-cols-3 gap-4">
-      {resources.map((resource) => <ResourceCard resource={resource} />)}
+      {
+        categories["Guides"]?.map((resource) => (
+          <ResourceCard resource={resource} />
+        ))
+      }
+      {
+        categories["Vocabulary"]?.map((resource) => (
+          <ResourceCard resource={resource} />
+        ))
+      }
+      {
+        categories["Mining"]?.map((resource) => (
+          <ResourceCard resource={resource} />
+        ))
+      }
+      {
+        categories["Immersion"]?.map((resource) => (
+          <ResourceCard resource={resource} />
+        ))
+      }
     </div>
   </div>
   <Footer />

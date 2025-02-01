@@ -90,14 +90,16 @@ import Footer from "@/components/Footer.astro";
               )
             }
           </div>
-          <div class="flex gap-1 items-center">
-            <Tags size={20} className="mr-2" />
-            {
-              frontmatter.tags?.map((tag: string) => (
-                <Badge variant={"outline"}>{tag}</Badge>
-              ))
-            }
-          </div>
+          {
+            frontmatter.tags && (
+              <div class="flex gap-1 items-center">
+                <Tags size={20} className="mr-2" />
+                {frontmatter.tags?.map((tag: string) => (
+                  <Badge variant={"outline"}>{tag}</Badge>
+                ))}
+              </div>
+            )
+          }
         </div>
         <Separator />
         <article

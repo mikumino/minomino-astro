@@ -1,7 +1,7 @@
 ---
 title: Animelon
 description: Anime streaming site with Japanese subtitles.
-image: ../images/mining.png
+image: ../images/animelon.webp
 imageAlt: Animelon
 url: https://animelon.com/
 usage: Used
