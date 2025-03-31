@@ -45,6 +45,11 @@ resources.forEach((resource) => {
           <ResourceCard resource={resource} />
         ))
       }
+      {
+        categories["Media Player"]?.map((resource) => (
+          <ResourceCard resource={resource} />
+        ))
+      }
     </div>
   </div>
   <Footer />
