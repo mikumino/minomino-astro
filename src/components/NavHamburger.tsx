@@ -41,9 +41,9 @@ export default function NavHamburger() {
           <a className={buttonVariants({ variant: "ghost" })} href="/resources">
             Resources
           </a>
-          <a className={buttonVariants({ variant: "ghost" })} href="/other">
+          {/* <a className={buttonVariants({ variant: "ghost" })} href="/other">
             Other
-          </a>
+          </a> */}
         </div>
       </SheetContent>
     </Sheet>

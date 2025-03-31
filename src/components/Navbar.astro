@@ -49,11 +49,11 @@ const path = Astro.url.pathname;
           href="/resources"
           transition:name="resources-card">Resources</a
         >
-        <a
+        <!-- <a
           class={`${buttonVariants({ variant: "ghost" })} ${path.replaceAll("/", "") === "other" && "text-primary font-bold"}`}
           href="/other"
           transition:name="other-card">Other</a
-        >
+        > -->
         <div transition:name="mode-toggle">
           <ModeToggle client:load />
         </div>
